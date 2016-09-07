@@ -1,9 +1,13 @@
+# -*- coding: utf-8
+
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import generic
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 # Create your views here.
+
+VERIFY_TOKEN='7thseptember2016'
 
 class MyChatBotView(generic.View):
 	def get(self,request,*args,**kwargs):
