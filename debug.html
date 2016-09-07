@@ -1,11 +1,11 @@
 HTTP/1.1 500 INTERNAL SERVER ERROR
 Connection: keep-alive
 Server: gunicorn/19.6.0
-Date: Wed, 07 Sep 2016 13:32:09 GMT
+Date: Wed, 07 Sep 2016 13:35:43 GMT
 Transfer-Encoding: chunked
+X-Frame-Options: SAMEORIGIN
 Content-Type: text/html
 Vary: Cookie
-X-Frame-Options: SAMEORIGIN
 Via: 1.1 vegur
 
 
@@ -129,7 +129,7 @@ Via: 1.1 vegur
 <body>
 <div id="summary">
   <h1>NameError at /facebook_auth</h1>
-  <pre class="exception_value">global name &#39;sender_id&#39; is not defined</pre>
+  <pre class="exception_value">global name &#39;incoming_mesage&#39; is not defined</pre>
   <table class="meta">
 
     <tr>
@@ -154,13 +154,13 @@ Via: 1.1 vegur
 
     <tr>
       <th>Exception Value:</th>
-      <td><pre>global name &#39;sender_id&#39; is not defined</pre></td>
+      <td><pre>global name &#39;incoming_mesage&#39; is not defined</pre></td>
     </tr>
 
 
     <tr>
       <th>Exception Location:</th>
-      <td>/app/chatbot/views.py in post, line 41</td>
+      <td>/app/chatbot/views.py in post, line 37</td>
     </tr>
 
     <tr>
@@ -188,7 +188,7 @@ Via: 1.1 vegur
     </tr>
     <tr>
       <th>Server time:</th>
-      <td>Wed, 7 Sep 2016 13:32:09 +0000</td>
+      <td>Wed, 7 Sep 2016 13:35:43 +0000</td>
     </tr>
   </table>
 </div>
@@ -206,13 +206,13 @@ Via: 1.1 vegur
           <code>/app/.heroku/python/lib/python2.7/site-packages/django/core/handlers/base.py</code> in <code>get_response</code>
 
           
-            <div class="context" id="c140154908104896">
+            <div class="context" id="c140366140340776">
               
-                <ol start="104" class="pre-context" id="pre140154908104896"><li onclick="toggle('pre140154908104896', 'post140154908104896')"><pre>                    response = middleware_method(request, callback, callback_args, callback_kwargs)</pre></li><li onclick="toggle('pre140154908104896', 'post140154908104896')"><pre>                    if response:</pre></li><li onclick="toggle('pre140154908104896', 'post140154908104896')"><pre>                        break</pre></li><li onclick="toggle('pre140154908104896', 'post140154908104896')"><pre></pre></li><li onclick="toggle('pre140154908104896', 'post140154908104896')"><pre>            if response is None:</pre></li><li onclick="toggle('pre140154908104896', 'post140154908104896')"><pre>                wrapped_callback = self.make_view_atomic(callback)</pre></li><li onclick="toggle('pre140154908104896', 'post140154908104896')"><pre>                try:</pre></li></ol>
+                <ol start="104" class="pre-context" id="pre140366140340776"><li onclick="toggle('pre140366140340776', 'post140366140340776')"><pre>                    response = middleware_method(request, callback, callback_args, callback_kwargs)</pre></li><li onclick="toggle('pre140366140340776', 'post140366140340776')"><pre>                    if response:</pre></li><li onclick="toggle('pre140366140340776', 'post140366140340776')"><pre>                        break</pre></li><li onclick="toggle('pre140366140340776', 'post140366140340776')"><pre></pre></li><li onclick="toggle('pre140366140340776', 'post140366140340776')"><pre>            if response is None:</pre></li><li onclick="toggle('pre140366140340776', 'post140366140340776')"><pre>                wrapped_callback = self.make_view_atomic(callback)</pre></li><li onclick="toggle('pre140366140340776', 'post140366140340776')"><pre>                try:</pre></li></ol>
               
-              <ol start="111" class="context-line"><li onclick="toggle('pre140154908104896', 'post140154908104896')"><pre>                    response = wrapped_callback(request, *callback_args, **callback_kwargs)</pre> <span>...</span></li></ol>
+              <ol start="111" class="context-line"><li onclick="toggle('pre140366140340776', 'post140366140340776')"><pre>                    response = wrapped_callback(request, *callback_args, **callback_kwargs)</pre> <span>...</span></li></ol>
               
-                <ol start='112' class="post-context" id="post140154908104896"><li onclick="toggle('pre140154908104896', 'post140154908104896')"><pre>                except Exception as e:</pre></li><li onclick="toggle('pre140154908104896', 'post140154908104896')"><pre>                    # If the view raised an exception, run it through exception</pre></li><li onclick="toggle('pre140154908104896', 'post140154908104896')"><pre>                    # middleware, and if the exception middleware returns a</pre></li><li onclick="toggle('pre140154908104896', 'post140154908104896')"><pre>                    # response, use that. Otherwise, reraise the exception.</pre></li><li onclick="toggle('pre140154908104896', 'post140154908104896')"><pre>                    for middleware_method in self._exception_middleware:</pre></li><li onclick="toggle('pre140154908104896', 'post140154908104896')"><pre>                        response = middleware_method(request, e)</pre></li></ol>
+                <ol start='112' class="post-context" id="post140366140340776"><li onclick="toggle('pre140366140340776', 'post140366140340776')"><pre>                except Exception as e:</pre></li><li onclick="toggle('pre140366140340776', 'post140366140340776')"><pre>                    # If the view raised an exception, run it through exception</pre></li><li onclick="toggle('pre140366140340776', 'post140366140340776')"><pre>                    # middleware, and if the exception middleware returns a</pre></li><li onclick="toggle('pre140366140340776', 'post140366140340776')"><pre>                    # response, use that. Otherwise, reraise the exception.</pre></li><li onclick="toggle('pre140366140340776', 'post140366140340776')"><pre>                    for middleware_method in self._exception_middleware:</pre></li><li onclick="toggle('pre140366140340776', 'post140366140340776')"><pre>                        response = middleware_method(request, e)</pre></li></ol>
               
             </div>
           
@@ -220,10 +220,10 @@ Via: 1.1 vegur
           
             <div class="commands">
                 
-                    <a href="#" onclick="return varToggle(this, '140154908104896')"><span>&#x25b6;</span> Local vars</a>
+                    <a href="#" onclick="return varToggle(this, '140366140340776')"><span>&#x25b6;</span> Local vars</a>
                 
             </div>
-            <table class="vars" id="v140154908104896">
+            <table class="vars" id="v140366140340776">
               <thead>
                 <tr>
                   <th>Variable</th>
@@ -233,53 +233,18 @@ Via: 1.1 vegur
               <tbody>
                 
                   <tr>
-                    <td>e</td>
-                    <td class="code"><pre>NameError(&quot;global name &#39;sender_id&#39; is not defined&quot;,)</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>callback_args</td>
-                    <td class="code"><pre>()</pre></td>
-                  </tr>
-                
-                  <tr>
                     <td>self</td>
-                    <td class="code"><pre>&lt;django.core.handlers.wsgi.WSGIHandler object at 0x7f785c84bf10&gt;</pre></td>
+                    <td class="code"><pre>&lt;django.core.handlers.wsgi.WSGIHandler object at 0x7fa98ae42e10&gt;</pre></td>
                   </tr>
                 
                   <tr>
-                    <td>response</td>
-                    <td class="code"><pre>None</pre></td>
+                    <td>wrapped_callback</td>
+                    <td class="code"><pre>&lt;function MyChatBotView at 0x7fa989f142a8&gt;</pre></td>
                   </tr>
                 
                   <tr>
-                    <td>resolver</td>
-                    <td class="code"><pre>&lt;RegexURLResolver &#39;hellobot.urls&#39; (None:None) ^/&gt;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>urlconf</td>
-                    <td class="code"><pre>&#39;hellobot.urls&#39;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>callback</td>
-                    <td class="code"><pre>&lt;function MyChatBotView at 0x7f785b817cf8&gt;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>middleware_method</td>
-                    <td class="code"><pre>&lt;bound method CsrfViewMiddleware.process_view of &lt;django.middleware.csrf.CsrfViewMiddleware object at 0x7f785cef7250&gt;&gt;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>request</td>
-                    <td class="code"><pre>&quot;&lt;WSGIRequest\npath:/facebook_auth,\nGET:&lt;QueryDict: {}&gt;,\nPOST:&lt;QueryDict: {}&gt;,\nCOOKIES:{},\nMETA:{&#39;CONTENT_LENGTH&#39;: &#39;274&#39;,\n &#39;CONTENT_TYPE&#39;: &#39;application/json&#39;,\n u&#39;CSRF_COOKIE&#39;: u&#39;O8kXfbEU5mvloBBirTAibCPJPvRaI9Bd&#39;,\n &#39;HTTP_ACCEPT&#39;: &#39;*/*&#39;,\n &#39;HTTP_CONNECTION&#39;: &#39;close&#39;,\n &#39;HTTP_CONNECT_TIME&#39;: &#39;1&#39;,\n &#39;HTTP_HOST&#39;: &#39;f-bot.herokuapp.com&#39;,\n &#39;HTTP_TOTAL_ROUTE_TIME&#39;: &#39;4003&#39;,\n &#39;HTTP_USER_AGENT&#39;: &#39;curl/7.47.0&#39;,\n &#39;HTTP_VIA&#39;: &#39;1.1 vegur&#39;,\n &#39;HTTP_X_FORWARDED_FOR&#39;: &#39;112.196.171.72&#39;,\n &#39;HTTP_X_FORWARDED_PORT&#39;: &#39;443&#39;,\n &#39;HTTP_X_FORWARDED_PROTO&#39;: &#39;https&#39;,\n &#39;HTTP_X_REQUEST_ID&#39;: &#39;6668cc87-5592-431f-abf8-0368227ccd51&#39;,\n &#39;HTTP_X_REQUEST_START&#39;: &#39;1473255125623&#39;,\n &#39;PATH_INFO&#39;: u&#39;/facebook_auth&#39;,\n &#39;QUERY_STRING&#39;: &#39;&#39;,\n &#39;RAW_URI&#39;: &#39;/facebook_auth&#39;,\n &#39;REMOTE_ADDR&#39;: &#39;10.51.167.27&#39;,\n &#39;REMOTE_PORT&#39;: &#39;20367&#39;,\n &#39;REQUEST_METHOD&#39;: &#39;POST&#39;,\n &#39;SCRIPT_NAME&#39;: u&#39;&#39;,\n &#39;SERVER_NAME&#39;: &#39;0.0.0.0&#39;,\n &#39;SERVER_PORT&#39;: &#39;33966&#39;,\n &#39;SERVER_PROTOCOL&#39;: &#39;HTTP/1.1&#39;,\n &#39;SERVER_SOFTWARE&#39;: &#39;gunicorn/19.6.0&#39;,\n &#39;gunicorn.socket&#39;: &lt;socket._socketobject object at 0x7f785c1bf910&gt;,\n &#39;wsgi.errors&#39;: &lt;gunicorn.http.wsgi.WSGIErrorsWrapper object at 0x7f785c2cffd0&gt;,\n &#39;wsgi.file_wrapper&#39;: &lt;class &#39;gunicorn.http.wsgi.FileWrapper&#39;&gt;,\n &#39;wsgi.input&#39;: &lt;gunicorn.http.body.Body object at 0x7f785c1b8910&gt;,\n &#39;wsgi.multiprocess&#39;: True,\n &#39;wsgi.multithread&#39;: False,\n &#39;wsgi.run_once&#39;: False,\n &#39;wsgi.url_scheme&#39;: &#39;https&#39;,\n &#39;wsgi.version&#39;: (1, 0)}&gt;&quot;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>resolver_match</td>
-                    <td class="code"><pre>ResolverMatch(func=&lt;function MyChatBotView at 0x7f785b817cf8&gt;, args=(), kwargs={}, url_name=&#39;chatbot.views.MyChatBotView&#39;, app_name=&#39;None&#39;, namespace=&#39;&#39;)</pre></td>
+                    <td>e</td>
+                    <td class="code"><pre>NameError(&quot;global name &#39;incoming_mesage&#39; is not defined&quot;,)</pre></td>
                   </tr>
                 
                   <tr>
@@ -288,8 +253,43 @@ Via: 1.1 vegur
                   </tr>
                 
                   <tr>
-                    <td>wrapped_callback</td>
-                    <td class="code"><pre>&lt;function MyChatBotView at 0x7f785b817cf8&gt;</pre></td>
+                    <td>callback</td>
+                    <td class="code"><pre>&lt;function MyChatBotView at 0x7fa989f142a8&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>urlconf</td>
+                    <td class="code"><pre>&#39;hellobot.urls&#39;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>resolver</td>
+                    <td class="code"><pre>&lt;RegexURLResolver &#39;hellobot.urls&#39; (None:None) ^/&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>middleware_method</td>
+                    <td class="code"><pre>&lt;bound method CsrfViewMiddleware.process_view of &lt;django.middleware.csrf.CsrfViewMiddleware object at 0x7fa98aec0110&gt;&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>callback_args</td>
+                    <td class="code"><pre>()</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>request</td>
+                    <td class="code"><pre>&quot;&lt;WSGIRequest\npath:/facebook_auth,\nGET:&lt;QueryDict: {}&gt;,\nPOST:&lt;QueryDict: {}&gt;,\nCOOKIES:{},\nMETA:{&#39;CONTENT_LENGTH&#39;: &#39;274&#39;,\n &#39;CONTENT_TYPE&#39;: &#39;application/json&#39;,\n u&#39;CSRF_COOKIE&#39;: u&#39;RHxl8tC6V7RfPv7dymymK0nqDb2nshcd&#39;,\n &#39;HTTP_ACCEPT&#39;: &#39;*/*&#39;,\n &#39;HTTP_CONNECTION&#39;: &#39;close&#39;,\n &#39;HTTP_CONNECT_TIME&#39;: &#39;0&#39;,\n &#39;HTTP_HOST&#39;: &#39;f-bot.herokuapp.com&#39;,\n &#39;HTTP_TOTAL_ROUTE_TIME&#39;: &#39;0&#39;,\n &#39;HTTP_USER_AGENT&#39;: &#39;curl/7.47.0&#39;,\n &#39;HTTP_VIA&#39;: &#39;1.1 vegur&#39;,\n &#39;HTTP_X_FORWARDED_FOR&#39;: &#39;112.196.171.72&#39;,\n &#39;HTTP_X_FORWARDED_PORT&#39;: &#39;443&#39;,\n &#39;HTTP_X_FORWARDED_PROTO&#39;: &#39;https&#39;,\n &#39;HTTP_X_REQUEST_ID&#39;: &#39;dfa1a348-fd67-4cfa-a514-fb4d84b8b3e1&#39;,\n &#39;HTTP_X_REQUEST_START&#39;: &#39;1473255342928&#39;,\n &#39;PATH_INFO&#39;: u&#39;/facebook_auth&#39;,\n &#39;QUERY_STRING&#39;: &#39;&#39;,\n &#39;RAW_URI&#39;: &#39;/facebook_auth&#39;,\n &#39;REMOTE_ADDR&#39;: &#39;10.30.17.197&#39;,\n &#39;REMOTE_PORT&#39;: &#39;28294&#39;,\n &#39;REQUEST_METHOD&#39;: &#39;POST&#39;,\n &#39;SCRIPT_NAME&#39;: u&#39;&#39;,\n &#39;SERVER_NAME&#39;: &#39;0.0.0.0&#39;,\n &#39;SERVER_PORT&#39;: &#39;20453&#39;,\n &#39;SERVER_PROTOCOL&#39;: &#39;HTTP/1.1&#39;,\n &#39;SERVER_SOFTWARE&#39;: &#39;gunicorn/19.6.0&#39;,\n &#39;gunicorn.socket&#39;: &lt;socket._socketobject object at 0x7fa989f17bb0&gt;,\n &#39;wsgi.errors&#39;: &lt;gunicorn.http.wsgi.WSGIErrorsWrapper object at 0x7fa989f15c50&gt;,\n &#39;wsgi.file_wrapper&#39;: &lt;class &#39;gunicorn.http.wsgi.FileWrapper&#39;&gt;,\n &#39;wsgi.input&#39;: &lt;gunicorn.http.body.Body object at 0x7fa98aec0b90&gt;,\n &#39;wsgi.multiprocess&#39;: True,\n &#39;wsgi.multithread&#39;: False,\n &#39;wsgi.run_once&#39;: False,\n &#39;wsgi.url_scheme&#39;: &#39;https&#39;,\n &#39;wsgi.version&#39;: (1, 0)}&gt;&quot;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>response</td>
+                    <td class="code"><pre>None</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>resolver_match</td>
+                    <td class="code"><pre>ResolverMatch(func=&lt;function MyChatBotView at 0x7fa989f142a8&gt;, args=(), kwargs={}, url_name=&#39;chatbot.views.MyChatBotView&#39;, app_name=&#39;None&#39;, namespace=&#39;&#39;)</pre></td>
                   </tr>
                 
               </tbody>
@@ -301,13 +301,13 @@ Via: 1.1 vegur
           <code>/app/.heroku/python/lib/python2.7/site-packages/django/views/generic/base.py</code> in <code>view</code>
 
           
-            <div class="context" id="c140154908104824">
+            <div class="context" id="c140366140342216">
               
-                <ol start="62" class="pre-context" id="pre140154908104824"><li onclick="toggle('pre140154908104824', 'post140154908104824')"><pre>        def view(request, *args, **kwargs):</pre></li><li onclick="toggle('pre140154908104824', 'post140154908104824')"><pre>            self = cls(**initkwargs)</pre></li><li onclick="toggle('pre140154908104824', 'post140154908104824')"><pre>            if hasattr(self, &#39;get&#39;) and not hasattr(self, &#39;head&#39;):</pre></li><li onclick="toggle('pre140154908104824', 'post140154908104824')"><pre>                self.head = self.get</pre></li><li onclick="toggle('pre140154908104824', 'post140154908104824')"><pre>            self.request = request</pre></li><li onclick="toggle('pre140154908104824', 'post140154908104824')"><pre>            self.args = args</pre></li><li onclick="toggle('pre140154908104824', 'post140154908104824')"><pre>            self.kwargs = kwargs</pre></li></ol>
+                <ol start="62" class="pre-context" id="pre140366140342216"><li onclick="toggle('pre140366140342216', 'post140366140342216')"><pre>        def view(request, *args, **kwargs):</pre></li><li onclick="toggle('pre140366140342216', 'post140366140342216')"><pre>            self = cls(**initkwargs)</pre></li><li onclick="toggle('pre140366140342216', 'post140366140342216')"><pre>            if hasattr(self, &#39;get&#39;) and not hasattr(self, &#39;head&#39;):</pre></li><li onclick="toggle('pre140366140342216', 'post140366140342216')"><pre>                self.head = self.get</pre></li><li onclick="toggle('pre140366140342216', 'post140366140342216')"><pre>            self.request = request</pre></li><li onclick="toggle('pre140366140342216', 'post140366140342216')"><pre>            self.args = args</pre></li><li onclick="toggle('pre140366140342216', 'post140366140342216')"><pre>            self.kwargs = kwargs</pre></li></ol>
               
-              <ol start="69" class="context-line"><li onclick="toggle('pre140154908104824', 'post140154908104824')"><pre>            return self.dispatch(request, *args, **kwargs)</pre> <span>...</span></li></ol>
+              <ol start="69" class="context-line"><li onclick="toggle('pre140366140342216', 'post140366140342216')"><pre>            return self.dispatch(request, *args, **kwargs)</pre> <span>...</span></li></ol>
               
-                <ol start='70' class="post-context" id="post140154908104824"><li onclick="toggle('pre140154908104824', 'post140154908104824')"><pre></pre></li><li onclick="toggle('pre140154908104824', 'post140154908104824')"><pre>        # take name and docstring from class</pre></li><li onclick="toggle('pre140154908104824', 'post140154908104824')"><pre>        update_wrapper(view, cls, updated=())</pre></li><li onclick="toggle('pre140154908104824', 'post140154908104824')"><pre></pre></li><li onclick="toggle('pre140154908104824', 'post140154908104824')"><pre>        # and possible attributes set by decorators</pre></li><li onclick="toggle('pre140154908104824', 'post140154908104824')"><pre>        # like csrf_exempt from dispatch</pre></li></ol>
+                <ol start='70' class="post-context" id="post140366140342216"><li onclick="toggle('pre140366140342216', 'post140366140342216')"><pre></pre></li><li onclick="toggle('pre140366140342216', 'post140366140342216')"><pre>        # take name and docstring from class</pre></li><li onclick="toggle('pre140366140342216', 'post140366140342216')"><pre>        update_wrapper(view, cls, updated=())</pre></li><li onclick="toggle('pre140366140342216', 'post140366140342216')"><pre></pre></li><li onclick="toggle('pre140366140342216', 'post140366140342216')"><pre>        # and possible attributes set by decorators</pre></li><li onclick="toggle('pre140366140342216', 'post140366140342216')"><pre>        # like csrf_exempt from dispatch</pre></li></ol>
               
             </div>
           
@@ -315,10 +315,10 @@ Via: 1.1 vegur
           
             <div class="commands">
                 
-                    <a href="#" onclick="return varToggle(this, '140154908104824')"><span>&#x25b6;</span> Local vars</a>
+                    <a href="#" onclick="return varToggle(this, '140366140342216')"><span>&#x25b6;</span> Local vars</a>
                 
             </div>
-            <table class="vars" id="v140154908104824">
+            <table class="vars" id="v140366140342216">
               <thead>
                 <tr>
                   <th>Variable</th>
@@ -328,13 +328,8 @@ Via: 1.1 vegur
               <tbody>
                 
                   <tr>
-                    <td>cls</td>
-                    <td class="code"><pre>&lt;class &#39;chatbot.views.MyChatBotView&#39;&gt;</pre></td>
-                  </tr>
-                
-                  <tr>
                     <td>self</td>
-                    <td class="code"><pre>&lt;chatbot.views.MyChatBotView object at 0x7f785b813850&gt;</pre></td>
+                    <td class="code"><pre>&lt;chatbot.views.MyChatBotView object at 0x7fa989f38410&gt;</pre></td>
                   </tr>
                 
                   <tr>
@@ -343,18 +338,23 @@ Via: 1.1 vegur
                   </tr>
                 
                   <tr>
-                    <td>initkwargs</td>
+                    <td>kwargs</td>
                     <td class="code"><pre>{}</pre></td>
                   </tr>
                 
                   <tr>
                     <td>request</td>
-                    <td class="code"><pre>&quot;&lt;WSGIRequest\npath:/facebook_auth,\nGET:&lt;QueryDict: {}&gt;,\nPOST:&lt;QueryDict: {}&gt;,\nCOOKIES:{},\nMETA:{&#39;CONTENT_LENGTH&#39;: &#39;274&#39;,\n &#39;CONTENT_TYPE&#39;: &#39;application/json&#39;,\n u&#39;CSRF_COOKIE&#39;: u&#39;O8kXfbEU5mvloBBirTAibCPJPvRaI9Bd&#39;,\n &#39;HTTP_ACCEPT&#39;: &#39;*/*&#39;,\n &#39;HTTP_CONNECTION&#39;: &#39;close&#39;,\n &#39;HTTP_CONNECT_TIME&#39;: &#39;1&#39;,\n &#39;HTTP_HOST&#39;: &#39;f-bot.herokuapp.com&#39;,\n &#39;HTTP_TOTAL_ROUTE_TIME&#39;: &#39;4003&#39;,\n &#39;HTTP_USER_AGENT&#39;: &#39;curl/7.47.0&#39;,\n &#39;HTTP_VIA&#39;: &#39;1.1 vegur&#39;,\n &#39;HTTP_X_FORWARDED_FOR&#39;: &#39;112.196.171.72&#39;,\n &#39;HTTP_X_FORWARDED_PORT&#39;: &#39;443&#39;,\n &#39;HTTP_X_FORWARDED_PROTO&#39;: &#39;https&#39;,\n &#39;HTTP_X_REQUEST_ID&#39;: &#39;6668cc87-5592-431f-abf8-0368227ccd51&#39;,\n &#39;HTTP_X_REQUEST_START&#39;: &#39;1473255125623&#39;,\n &#39;PATH_INFO&#39;: u&#39;/facebook_auth&#39;,\n &#39;QUERY_STRING&#39;: &#39;&#39;,\n &#39;RAW_URI&#39;: &#39;/facebook_auth&#39;,\n &#39;REMOTE_ADDR&#39;: &#39;10.51.167.27&#39;,\n &#39;REMOTE_PORT&#39;: &#39;20367&#39;,\n &#39;REQUEST_METHOD&#39;: &#39;POST&#39;,\n &#39;SCRIPT_NAME&#39;: u&#39;&#39;,\n &#39;SERVER_NAME&#39;: &#39;0.0.0.0&#39;,\n &#39;SERVER_PORT&#39;: &#39;33966&#39;,\n &#39;SERVER_PROTOCOL&#39;: &#39;HTTP/1.1&#39;,\n &#39;SERVER_SOFTWARE&#39;: &#39;gunicorn/19.6.0&#39;,\n &#39;gunicorn.socket&#39;: &lt;socket._socketobject object at 0x7f785c1bf910&gt;,\n &#39;wsgi.errors&#39;: &lt;gunicorn.http.wsgi.WSGIErrorsWrapper object at 0x7f785c2cffd0&gt;,\n &#39;wsgi.file_wrapper&#39;: &lt;class &#39;gunicorn.http.wsgi.FileWrapper&#39;&gt;,\n &#39;wsgi.input&#39;: &lt;gunicorn.http.body.Body object at 0x7f785c1b8910&gt;,\n &#39;wsgi.multiprocess&#39;: True,\n &#39;wsgi.multithread&#39;: False,\n &#39;wsgi.run_once&#39;: False,\n &#39;wsgi.url_scheme&#39;: &#39;https&#39;,\n &#39;wsgi.version&#39;: (1, 0)}&gt;&quot;</pre></td>
+                    <td class="code"><pre>&quot;&lt;WSGIRequest\npath:/facebook_auth,\nGET:&lt;QueryDict: {}&gt;,\nPOST:&lt;QueryDict: {}&gt;,\nCOOKIES:{},\nMETA:{&#39;CONTENT_LENGTH&#39;: &#39;274&#39;,\n &#39;CONTENT_TYPE&#39;: &#39;application/json&#39;,\n u&#39;CSRF_COOKIE&#39;: u&#39;RHxl8tC6V7RfPv7dymymK0nqDb2nshcd&#39;,\n &#39;HTTP_ACCEPT&#39;: &#39;*/*&#39;,\n &#39;HTTP_CONNECTION&#39;: &#39;close&#39;,\n &#39;HTTP_CONNECT_TIME&#39;: &#39;0&#39;,\n &#39;HTTP_HOST&#39;: &#39;f-bot.herokuapp.com&#39;,\n &#39;HTTP_TOTAL_ROUTE_TIME&#39;: &#39;0&#39;,\n &#39;HTTP_USER_AGENT&#39;: &#39;curl/7.47.0&#39;,\n &#39;HTTP_VIA&#39;: &#39;1.1 vegur&#39;,\n &#39;HTTP_X_FORWARDED_FOR&#39;: &#39;112.196.171.72&#39;,\n &#39;HTTP_X_FORWARDED_PORT&#39;: &#39;443&#39;,\n &#39;HTTP_X_FORWARDED_PROTO&#39;: &#39;https&#39;,\n &#39;HTTP_X_REQUEST_ID&#39;: &#39;dfa1a348-fd67-4cfa-a514-fb4d84b8b3e1&#39;,\n &#39;HTTP_X_REQUEST_START&#39;: &#39;1473255342928&#39;,\n &#39;PATH_INFO&#39;: u&#39;/facebook_auth&#39;,\n &#39;QUERY_STRING&#39;: &#39;&#39;,\n &#39;RAW_URI&#39;: &#39;/facebook_auth&#39;,\n &#39;REMOTE_ADDR&#39;: &#39;10.30.17.197&#39;,\n &#39;REMOTE_PORT&#39;: &#39;28294&#39;,\n &#39;REQUEST_METHOD&#39;: &#39;POST&#39;,\n &#39;SCRIPT_NAME&#39;: u&#39;&#39;,\n &#39;SERVER_NAME&#39;: &#39;0.0.0.0&#39;,\n &#39;SERVER_PORT&#39;: &#39;20453&#39;,\n &#39;SERVER_PROTOCOL&#39;: &#39;HTTP/1.1&#39;,\n &#39;SERVER_SOFTWARE&#39;: &#39;gunicorn/19.6.0&#39;,\n &#39;gunicorn.socket&#39;: &lt;socket._socketobject object at 0x7fa989f17bb0&gt;,\n &#39;wsgi.errors&#39;: &lt;gunicorn.http.wsgi.WSGIErrorsWrapper object at 0x7fa989f15c50&gt;,\n &#39;wsgi.file_wrapper&#39;: &lt;class &#39;gunicorn.http.wsgi.FileWrapper&#39;&gt;,\n &#39;wsgi.input&#39;: &lt;gunicorn.http.body.Body object at 0x7fa98aec0b90&gt;,\n &#39;wsgi.multiprocess&#39;: True,\n &#39;wsgi.multithread&#39;: False,\n &#39;wsgi.run_once&#39;: False,\n &#39;wsgi.url_scheme&#39;: &#39;https&#39;,\n &#39;wsgi.version&#39;: (1, 0)}&gt;&quot;</pre></td>
                   </tr>
                 
                   <tr>
-                    <td>kwargs</td>
+                    <td>initkwargs</td>
                     <td class="code"><pre>{}</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>cls</td>
+                    <td class="code"><pre>&lt;class &#39;chatbot.views.MyChatBotView&#39;&gt;</pre></td>
                   </tr>
                 
               </tbody>
@@ -366,13 +366,13 @@ Via: 1.1 vegur
           <code>/app/.heroku/python/lib/python2.7/site-packages/django/utils/decorators.py</code> in <code>_wrapper</code>
 
           
-            <div class="context" id="c140154908104752">
+            <div class="context" id="c140366140339264">
               
-                <ol start="22" class="pre-context" id="pre140154908104752"><li onclick="toggle('pre140154908104752', 'post140154908104752')"><pre>        def _wrapper(self, *args, **kwargs):</pre></li><li onclick="toggle('pre140154908104752', 'post140154908104752')"><pre>            @decorator</pre></li><li onclick="toggle('pre140154908104752', 'post140154908104752')"><pre>            def bound_func(*args2, **kwargs2):</pre></li><li onclick="toggle('pre140154908104752', 'post140154908104752')"><pre>                return func.__get__(self, type(self))(*args2, **kwargs2)</pre></li><li onclick="toggle('pre140154908104752', 'post140154908104752')"><pre>            # bound_func has the signature that &#39;decorator&#39; expects i.e.  no</pre></li><li onclick="toggle('pre140154908104752', 'post140154908104752')"><pre>            # &#39;self&#39; argument, but it is a closure over self so it can call</pre></li><li onclick="toggle('pre140154908104752', 'post140154908104752')"><pre>            # &#39;func&#39; correctly.</pre></li></ol>
+                <ol start="22" class="pre-context" id="pre140366140339264"><li onclick="toggle('pre140366140339264', 'post140366140339264')"><pre>        def _wrapper(self, *args, **kwargs):</pre></li><li onclick="toggle('pre140366140339264', 'post140366140339264')"><pre>            @decorator</pre></li><li onclick="toggle('pre140366140339264', 'post140366140339264')"><pre>            def bound_func(*args2, **kwargs2):</pre></li><li onclick="toggle('pre140366140339264', 'post140366140339264')"><pre>                return func.__get__(self, type(self))(*args2, **kwargs2)</pre></li><li onclick="toggle('pre140366140339264', 'post140366140339264')"><pre>            # bound_func has the signature that &#39;decorator&#39; expects i.e.  no</pre></li><li onclick="toggle('pre140366140339264', 'post140366140339264')"><pre>            # &#39;self&#39; argument, but it is a closure over self so it can call</pre></li><li onclick="toggle('pre140366140339264', 'post140366140339264')"><pre>            # &#39;func&#39; correctly.</pre></li></ol>
               
-              <ol start="29" class="context-line"><li onclick="toggle('pre140154908104752', 'post140154908104752')"><pre>            return bound_func(*args, **kwargs)</pre> <span>...</span></li></ol>
+              <ol start="29" class="context-line"><li onclick="toggle('pre140366140339264', 'post140366140339264')"><pre>            return bound_func(*args, **kwargs)</pre> <span>...</span></li></ol>
               
-                <ol start='30' class="post-context" id="post140154908104752"><li onclick="toggle('pre140154908104752', 'post140154908104752')"><pre>        # In case &#39;decorator&#39; adds attributes to the function it decorates, we</pre></li><li onclick="toggle('pre140154908104752', 'post140154908104752')"><pre>        # want to copy those. We don&#39;t have access to bound_func in this scope,</pre></li><li onclick="toggle('pre140154908104752', 'post140154908104752')"><pre>        # but we can cheat by using it on a dummy function.</pre></li><li onclick="toggle('pre140154908104752', 'post140154908104752')"><pre></pre></li><li onclick="toggle('pre140154908104752', 'post140154908104752')"><pre>        @decorator</pre></li><li onclick="toggle('pre140154908104752', 'post140154908104752')"><pre>        def dummy(*args, **kwargs):</pre></li></ol>
+                <ol start='30' class="post-context" id="post140366140339264"><li onclick="toggle('pre140366140339264', 'post140366140339264')"><pre>        # In case &#39;decorator&#39; adds attributes to the function it decorates, we</pre></li><li onclick="toggle('pre140366140339264', 'post140366140339264')"><pre>        # want to copy those. We don&#39;t have access to bound_func in this scope,</pre></li><li onclick="toggle('pre140366140339264', 'post140366140339264')"><pre>        # but we can cheat by using it on a dummy function.</pre></li><li onclick="toggle('pre140366140339264', 'post140366140339264')"><pre></pre></li><li onclick="toggle('pre140366140339264', 'post140366140339264')"><pre>        @decorator</pre></li><li onclick="toggle('pre140366140339264', 'post140366140339264')"><pre>        def dummy(*args, **kwargs):</pre></li></ol>
               
             </div>
           
@@ -380,10 +380,10 @@ Via: 1.1 vegur
           
             <div class="commands">
                 
-                    <a href="#" onclick="return varToggle(this, '140154908104752')"><span>&#x25b6;</span> Local vars</a>
+                    <a href="#" onclick="return varToggle(this, '140366140339264')"><span>&#x25b6;</span> Local vars</a>
                 
             </div>
-            <table class="vars" id="v140154908104752">
+            <table class="vars" id="v140366140339264">
               <thead>
                 <tr>
                   <th>Variable</th>
@@ -393,18 +393,8 @@ Via: 1.1 vegur
               <tbody>
                 
                   <tr>
-                    <td>func</td>
-                    <td class="code"><pre>&lt;function dispatch at 0x7f785b8179b0&gt;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>bound_func</td>
-                    <td class="code"><pre>&lt;function bound_func at 0x7f785b82f0c8&gt;</pre></td>
-                  </tr>
-                
-                  <tr>
                     <td>self</td>
-                    <td class="code"><pre>&lt;chatbot.views.MyChatBotView object at 0x7f785b813850&gt;</pre></td>
+                    <td class="code"><pre>&lt;chatbot.views.MyChatBotView object at 0x7fa989f38410&gt;</pre></td>
                   </tr>
                 
                   <tr>
@@ -416,34 +406,34 @@ POST:&lt;QueryDict: {}&gt;,
 COOKIES:{},
 META:{&#39;CONTENT_LENGTH&#39;: &#39;274&#39;,
  &#39;CONTENT_TYPE&#39;: &#39;application/json&#39;,
- u&#39;CSRF_COOKIE&#39;: u&#39;O8kXfbEU5mvloBBirTAibCPJPvRaI9Bd&#39;,
+ u&#39;CSRF_COOKIE&#39;: u&#39;RHxl8tC6V7RfPv7dymymK0nqDb2nshcd&#39;,
  &#39;HTTP_ACCEPT&#39;: &#39;*/*&#39;,
  &#39;HTTP_CONNECTION&#39;: &#39;close&#39;,
- &#39;HTTP_CONNECT_TIME&#39;: &#39;1&#39;,
+ &#39;HTTP_CONNECT_TIME&#39;: &#39;0&#39;,
  &#39;HTTP_HOST&#39;: &#39;f-bot.herokuapp.com&#39;,
- &#39;HTTP_TOTAL_ROUTE_TIME&#39;: &#39;4003&#39;,
+ &#39;HTTP_TOTAL_ROUTE_TIME&#39;: &#39;0&#39;,
  &#39;HTTP_USER_AGENT&#39;: &#39;curl/7.47.0&#39;,
  &#39;HTTP_VIA&#39;: &#39;1.1 vegur&#39;,
  &#39;HTTP_X_FORWARDED_FOR&#39;: &#39;112.196.171.72&#39;,
  &#39;HTTP_X_FORWARDED_PORT&#39;: &#39;443&#39;,
  &#39;HTTP_X_FORWARDED_PROTO&#39;: &#39;https&#39;,
- &#39;HTTP_X_REQUEST_ID&#39;: &#39;6668cc87-5592-431f-abf8-0368227ccd51&#39;,
- &#39;HTTP_X_REQUEST_START&#39;: &#39;1473255125623&#39;,
+ &#39;HTTP_X_REQUEST_ID&#39;: &#39;dfa1a348-fd67-4cfa-a514-fb4d84b8b3e1&#39;,
+ &#39;HTTP_X_REQUEST_START&#39;: &#39;1473255342928&#39;,
  &#39;PATH_INFO&#39;: u&#39;/facebook_auth&#39;,
  &#39;QUERY_STRING&#39;: &#39;&#39;,
  &#39;RAW_URI&#39;: &#39;/facebook_auth&#39;,
- &#39;REMOTE_ADDR&#39;: &#39;10.51.167.27&#39;,
- &#39;REMOTE_PORT&#39;: &#39;20367&#39;,
+ &#39;REMOTE_ADDR&#39;: &#39;10.30.17.197&#39;,
+ &#39;REMOTE_PORT&#39;: &#39;28294&#39;,
  &#39;REQUEST_METHOD&#39;: &#39;POST&#39;,
  &#39;SCRIPT_NAME&#39;: u&#39;&#39;,
  &#39;SERVER_NAME&#39;: &#39;0.0.0.0&#39;,
- &#39;SERVER_PORT&#39;: &#39;33966&#39;,
+ &#39;SERVER_PORT&#39;: &#39;20453&#39;,
  &#39;SERVER_PROTOCOL&#39;: &#39;HTTP/1.1&#39;,
  &#39;SERVER_SOFTWARE&#39;: &#39;gunicorn/19.6.0&#39;,
- &#39;gunicorn.socket&#39;: &lt;socket._socketobject object at 0x7f785c1bf910&gt;,
- &#39;wsgi.errors&#39;: &lt;gunicorn.http.wsgi.WSGIErrorsWrapper object at 0x7f785c2cffd0&gt;,
+ &#39;gunicorn.socket&#39;: &lt;socket._socketobject object at 0x7fa989f17bb0&gt;,
+ &#39;wsgi.errors&#39;: &lt;gunicorn.http.wsgi.WSGIErrorsWrapper object at 0x7fa989f15c50&gt;,
  &#39;wsgi.file_wrapper&#39;: &lt;class &#39;gunicorn.http.wsgi.FileWrapper&#39;&gt;,
- &#39;wsgi.input&#39;: &lt;gunicorn.http.body.Body object at 0x7f785c1b8910&gt;,
+ &#39;wsgi.input&#39;: &lt;gunicorn.http.body.Body object at 0x7fa98aec0b90&gt;,
  &#39;wsgi.multiprocess&#39;: True,
  &#39;wsgi.multithread&#39;: False,
  &#39;wsgi.run_once&#39;: False,
@@ -452,8 +442,18 @@ META:{&#39;CONTENT_LENGTH&#39;: &#39;274&#39;,
                   </tr>
                 
                   <tr>
+                    <td>bound_func</td>
+                    <td class="code"><pre>&lt;function bound_func at 0x7fa989e9e1b8&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>func</td>
+                    <td class="code"><pre>&lt;function dispatch at 0x7fa989f1eed8&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
                     <td>decorator</td>
-                    <td class="code"><pre>&lt;function csrf_exempt at 0x7f785c786de8&gt;</pre></td>
+                    <td class="code"><pre>&lt;function csrf_exempt at 0x7fa98ae71e60&gt;</pre></td>
                   </tr>
                 
                   <tr>
@@ -470,13 +470,13 @@ META:{&#39;CONTENT_LENGTH&#39;: &#39;274&#39;,
           <code>/app/.heroku/python/lib/python2.7/site-packages/django/views/decorators/csrf.py</code> in <code>wrapped_view</code>
 
           
-            <div class="context" id="c140154908104680">
+            <div class="context" id="c140366140339336">
               
-                <ol start="50" class="pre-context" id="pre140154908104680"><li onclick="toggle('pre140154908104680', 'post140154908104680')"><pre>    &quot;&quot;&quot;</pre></li><li onclick="toggle('pre140154908104680', 'post140154908104680')"><pre>    Marks a view function as being exempt from the CSRF view protection.</pre></li><li onclick="toggle('pre140154908104680', 'post140154908104680')"><pre>    &quot;&quot;&quot;</pre></li><li onclick="toggle('pre140154908104680', 'post140154908104680')"><pre>    # We could just do view_func.csrf_exempt = True, but decorators</pre></li><li onclick="toggle('pre140154908104680', 'post140154908104680')"><pre>    # are nicer if they don&#39;t have side-effects, so we return a new</pre></li><li onclick="toggle('pre140154908104680', 'post140154908104680')"><pre>    # function.</pre></li><li onclick="toggle('pre140154908104680', 'post140154908104680')"><pre>    def wrapped_view(*args, **kwargs):</pre></li></ol>
+                <ol start="50" class="pre-context" id="pre140366140339336"><li onclick="toggle('pre140366140339336', 'post140366140339336')"><pre>    &quot;&quot;&quot;</pre></li><li onclick="toggle('pre140366140339336', 'post140366140339336')"><pre>    Marks a view function as being exempt from the CSRF view protection.</pre></li><li onclick="toggle('pre140366140339336', 'post140366140339336')"><pre>    &quot;&quot;&quot;</pre></li><li onclick="toggle('pre140366140339336', 'post140366140339336')"><pre>    # We could just do view_func.csrf_exempt = True, but decorators</pre></li><li onclick="toggle('pre140366140339336', 'post140366140339336')"><pre>    # are nicer if they don&#39;t have side-effects, so we return a new</pre></li><li onclick="toggle('pre140366140339336', 'post140366140339336')"><pre>    # function.</pre></li><li onclick="toggle('pre140366140339336', 'post140366140339336')"><pre>    def wrapped_view(*args, **kwargs):</pre></li></ol>
               
-              <ol start="57" class="context-line"><li onclick="toggle('pre140154908104680', 'post140154908104680')"><pre>        return view_func(*args, **kwargs)</pre> <span>...</span></li></ol>
+              <ol start="57" class="context-line"><li onclick="toggle('pre140366140339336', 'post140366140339336')"><pre>        return view_func(*args, **kwargs)</pre> <span>...</span></li></ol>
               
-                <ol start='58' class="post-context" id="post140154908104680"><li onclick="toggle('pre140154908104680', 'post140154908104680')"><pre>    wrapped_view.csrf_exempt = True</pre></li><li onclick="toggle('pre140154908104680', 'post140154908104680')"><pre>    return wraps(view_func, assigned=available_attrs(view_func))(wrapped_view)</pre></li></ol>
+                <ol start='58' class="post-context" id="post140366140339336"><li onclick="toggle('pre140366140339336', 'post140366140339336')"><pre>    wrapped_view.csrf_exempt = True</pre></li><li onclick="toggle('pre140366140339336', 'post140366140339336')"><pre>    return wraps(view_func, assigned=available_attrs(view_func))(wrapped_view)</pre></li></ol>
               
             </div>
           
@@ -484,10 +484,10 @@ META:{&#39;CONTENT_LENGTH&#39;: &#39;274&#39;,
           
             <div class="commands">
                 
-                    <a href="#" onclick="return varToggle(this, '140154908104680')"><span>&#x25b6;</span> Local vars</a>
+                    <a href="#" onclick="return varToggle(this, '140366140339336')"><span>&#x25b6;</span> Local vars</a>
                 
             </div>
-            <table class="vars" id="v140154908104680">
+            <table class="vars" id="v140366140339336">
               <thead>
                 <tr>
                   <th>Variable</th>
@@ -495,11 +495,6 @@ META:{&#39;CONTENT_LENGTH&#39;: &#39;274&#39;,
                 </tr>
               </thead>
               <tbody>
-                
-                  <tr>
-                    <td>view_func</td>
-                    <td class="code"><pre>&lt;function bound_func at 0x7f785b82bc08&gt;</pre></td>
-                  </tr>
                 
                   <tr>
                     <td>kwargs</td>
@@ -515,39 +510,44 @@ POST:&lt;QueryDict: {}&gt;,
 COOKIES:{},
 META:{&#39;CONTENT_LENGTH&#39;: &#39;274&#39;,
  &#39;CONTENT_TYPE&#39;: &#39;application/json&#39;,
- u&#39;CSRF_COOKIE&#39;: u&#39;O8kXfbEU5mvloBBirTAibCPJPvRaI9Bd&#39;,
+ u&#39;CSRF_COOKIE&#39;: u&#39;RHxl8tC6V7RfPv7dymymK0nqDb2nshcd&#39;,
  &#39;HTTP_ACCEPT&#39;: &#39;*/*&#39;,
  &#39;HTTP_CONNECTION&#39;: &#39;close&#39;,
- &#39;HTTP_CONNECT_TIME&#39;: &#39;1&#39;,
+ &#39;HTTP_CONNECT_TIME&#39;: &#39;0&#39;,
  &#39;HTTP_HOST&#39;: &#39;f-bot.herokuapp.com&#39;,
- &#39;HTTP_TOTAL_ROUTE_TIME&#39;: &#39;4003&#39;,
+ &#39;HTTP_TOTAL_ROUTE_TIME&#39;: &#39;0&#39;,
  &#39;HTTP_USER_AGENT&#39;: &#39;curl/7.47.0&#39;,
  &#39;HTTP_VIA&#39;: &#39;1.1 vegur&#39;,
  &#39;HTTP_X_FORWARDED_FOR&#39;: &#39;112.196.171.72&#39;,
  &#39;HTTP_X_FORWARDED_PORT&#39;: &#39;443&#39;,
  &#39;HTTP_X_FORWARDED_PROTO&#39;: &#39;https&#39;,
- &#39;HTTP_X_REQUEST_ID&#39;: &#39;6668cc87-5592-431f-abf8-0368227ccd51&#39;,
- &#39;HTTP_X_REQUEST_START&#39;: &#39;1473255125623&#39;,
+ &#39;HTTP_X_REQUEST_ID&#39;: &#39;dfa1a348-fd67-4cfa-a514-fb4d84b8b3e1&#39;,
+ &#39;HTTP_X_REQUEST_START&#39;: &#39;1473255342928&#39;,
  &#39;PATH_INFO&#39;: u&#39;/facebook_auth&#39;,
  &#39;QUERY_STRING&#39;: &#39;&#39;,
  &#39;RAW_URI&#39;: &#39;/facebook_auth&#39;,
- &#39;REMOTE_ADDR&#39;: &#39;10.51.167.27&#39;,
- &#39;REMOTE_PORT&#39;: &#39;20367&#39;,
+ &#39;REMOTE_ADDR&#39;: &#39;10.30.17.197&#39;,
+ &#39;REMOTE_PORT&#39;: &#39;28294&#39;,
  &#39;REQUEST_METHOD&#39;: &#39;POST&#39;,
  &#39;SCRIPT_NAME&#39;: u&#39;&#39;,
  &#39;SERVER_NAME&#39;: &#39;0.0.0.0&#39;,
- &#39;SERVER_PORT&#39;: &#39;33966&#39;,
+ &#39;SERVER_PORT&#39;: &#39;20453&#39;,
  &#39;SERVER_PROTOCOL&#39;: &#39;HTTP/1.1&#39;,
  &#39;SERVER_SOFTWARE&#39;: &#39;gunicorn/19.6.0&#39;,
- &#39;gunicorn.socket&#39;: &lt;socket._socketobject object at 0x7f785c1bf910&gt;,
- &#39;wsgi.errors&#39;: &lt;gunicorn.http.wsgi.WSGIErrorsWrapper object at 0x7f785c2cffd0&gt;,
+ &#39;gunicorn.socket&#39;: &lt;socket._socketobject object at 0x7fa989f17bb0&gt;,
+ &#39;wsgi.errors&#39;: &lt;gunicorn.http.wsgi.WSGIErrorsWrapper object at 0x7fa989f15c50&gt;,
  &#39;wsgi.file_wrapper&#39;: &lt;class &#39;gunicorn.http.wsgi.FileWrapper&#39;&gt;,
- &#39;wsgi.input&#39;: &lt;gunicorn.http.body.Body object at 0x7f785c1b8910&gt;,
+ &#39;wsgi.input&#39;: &lt;gunicorn.http.body.Body object at 0x7fa98aec0b90&gt;,
  &#39;wsgi.multiprocess&#39;: True,
  &#39;wsgi.multithread&#39;: False,
  &#39;wsgi.run_once&#39;: False,
  &#39;wsgi.url_scheme&#39;: &#39;https&#39;,
  &#39;wsgi.version&#39;: (1, 0)}&gt;,)</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>view_func</td>
+                    <td class="code"><pre>&lt;function bound_func at 0x7fa989f2e1b8&gt;</pre></td>
                   </tr>
                 
               </tbody>
@@ -559,13 +559,13 @@ META:{&#39;CONTENT_LENGTH&#39;: &#39;274&#39;,
           <code>/app/.heroku/python/lib/python2.7/site-packages/django/utils/decorators.py</code> in <code>bound_func</code>
 
           
-            <div class="context" id="c140154908104464">
+            <div class="context" id="c140366140341928">
               
-                <ol start="18" class="pre-context" id="pre140154908104464"><li onclick="toggle('pre140154908104464', 'post140154908104464')"><pre>    &quot;&quot;&quot;</pre></li><li onclick="toggle('pre140154908104464', 'post140154908104464')"><pre>    # &#39;func&#39; is a function at the time it is passed to _dec, but will eventually</pre></li><li onclick="toggle('pre140154908104464', 'post140154908104464')"><pre>    # be a method of the class it is defined it.</pre></li><li onclick="toggle('pre140154908104464', 'post140154908104464')"><pre>    def _dec(func):</pre></li><li onclick="toggle('pre140154908104464', 'post140154908104464')"><pre>        def _wrapper(self, *args, **kwargs):</pre></li><li onclick="toggle('pre140154908104464', 'post140154908104464')"><pre>            @decorator</pre></li><li onclick="toggle('pre140154908104464', 'post140154908104464')"><pre>            def bound_func(*args2, **kwargs2):</pre></li></ol>
+                <ol start="18" class="pre-context" id="pre140366140341928"><li onclick="toggle('pre140366140341928', 'post140366140341928')"><pre>    &quot;&quot;&quot;</pre></li><li onclick="toggle('pre140366140341928', 'post140366140341928')"><pre>    # &#39;func&#39; is a function at the time it is passed to _dec, but will eventually</pre></li><li onclick="toggle('pre140366140341928', 'post140366140341928')"><pre>    # be a method of the class it is defined it.</pre></li><li onclick="toggle('pre140366140341928', 'post140366140341928')"><pre>    def _dec(func):</pre></li><li onclick="toggle('pre140366140341928', 'post140366140341928')"><pre>        def _wrapper(self, *args, **kwargs):</pre></li><li onclick="toggle('pre140366140341928', 'post140366140341928')"><pre>            @decorator</pre></li><li onclick="toggle('pre140366140341928', 'post140366140341928')"><pre>            def bound_func(*args2, **kwargs2):</pre></li></ol>
               
-              <ol start="25" class="context-line"><li onclick="toggle('pre140154908104464', 'post140154908104464')"><pre>                return func.__get__(self, type(self))(*args2, **kwargs2)</pre> <span>...</span></li></ol>
+              <ol start="25" class="context-line"><li onclick="toggle('pre140366140341928', 'post140366140341928')"><pre>                return func.__get__(self, type(self))(*args2, **kwargs2)</pre> <span>...</span></li></ol>
               
-                <ol start='26' class="post-context" id="post140154908104464"><li onclick="toggle('pre140154908104464', 'post140154908104464')"><pre>            # bound_func has the signature that &#39;decorator&#39; expects i.e.  no</pre></li><li onclick="toggle('pre140154908104464', 'post140154908104464')"><pre>            # &#39;self&#39; argument, but it is a closure over self so it can call</pre></li><li onclick="toggle('pre140154908104464', 'post140154908104464')"><pre>            # &#39;func&#39; correctly.</pre></li><li onclick="toggle('pre140154908104464', 'post140154908104464')"><pre>            return bound_func(*args, **kwargs)</pre></li><li onclick="toggle('pre140154908104464', 'post140154908104464')"><pre>        # In case &#39;decorator&#39; adds attributes to the function it decorates, we</pre></li><li onclick="toggle('pre140154908104464', 'post140154908104464')"><pre>        # want to copy those. We don&#39;t have access to bound_func in this scope,</pre></li></ol>
+                <ol start='26' class="post-context" id="post140366140341928"><li onclick="toggle('pre140366140341928', 'post140366140341928')"><pre>            # bound_func has the signature that &#39;decorator&#39; expects i.e.  no</pre></li><li onclick="toggle('pre140366140341928', 'post140366140341928')"><pre>            # &#39;self&#39; argument, but it is a closure over self so it can call</pre></li><li onclick="toggle('pre140366140341928', 'post140366140341928')"><pre>            # &#39;func&#39; correctly.</pre></li><li onclick="toggle('pre140366140341928', 'post140366140341928')"><pre>            return bound_func(*args, **kwargs)</pre></li><li onclick="toggle('pre140366140341928', 'post140366140341928')"><pre>        # In case &#39;decorator&#39; adds attributes to the function it decorates, we</pre></li><li onclick="toggle('pre140366140341928', 'post140366140341928')"><pre>        # want to copy those. We don&#39;t have access to bound_func in this scope,</pre></li></ol>
               
             </div>
           
@@ -573,10 +573,10 @@ META:{&#39;CONTENT_LENGTH&#39;: &#39;274&#39;,
           
             <div class="commands">
                 
-                    <a href="#" onclick="return varToggle(this, '140154908104464')"><span>&#x25b6;</span> Local vars</a>
+                    <a href="#" onclick="return varToggle(this, '140366140341928')"><span>&#x25b6;</span> Local vars</a>
                 
             </div>
-            <table class="vars" id="v140154908104464">
+            <table class="vars" id="v140366140341928">
               <thead>
                 <tr>
                   <th>Variable</th>
@@ -586,8 +586,13 @@ META:{&#39;CONTENT_LENGTH&#39;: &#39;274&#39;,
               <tbody>
                 
                   <tr>
-                    <td>kwargs2</td>
-                    <td class="code"><pre>{}</pre></td>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;chatbot.views.MyChatBotView object at 0x7fa989f38410&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>func</td>
+                    <td class="code"><pre>&lt;function dispatch at 0x7fa989f1eed8&gt;</pre></td>
                   </tr>
                 
                   <tr>
@@ -599,34 +604,34 @@ POST:&lt;QueryDict: {}&gt;,
 COOKIES:{},
 META:{&#39;CONTENT_LENGTH&#39;: &#39;274&#39;,
  &#39;CONTENT_TYPE&#39;: &#39;application/json&#39;,
- u&#39;CSRF_COOKIE&#39;: u&#39;O8kXfbEU5mvloBBirTAibCPJPvRaI9Bd&#39;,
+ u&#39;CSRF_COOKIE&#39;: u&#39;RHxl8tC6V7RfPv7dymymK0nqDb2nshcd&#39;,
  &#39;HTTP_ACCEPT&#39;: &#39;*/*&#39;,
  &#39;HTTP_CONNECTION&#39;: &#39;close&#39;,
- &#39;HTTP_CONNECT_TIME&#39;: &#39;1&#39;,
+ &#39;HTTP_CONNECT_TIME&#39;: &#39;0&#39;,
  &#39;HTTP_HOST&#39;: &#39;f-bot.herokuapp.com&#39;,
- &#39;HTTP_TOTAL_ROUTE_TIME&#39;: &#39;4003&#39;,
+ &#39;HTTP_TOTAL_ROUTE_TIME&#39;: &#39;0&#39;,
  &#39;HTTP_USER_AGENT&#39;: &#39;curl/7.47.0&#39;,
  &#39;HTTP_VIA&#39;: &#39;1.1 vegur&#39;,
  &#39;HTTP_X_FORWARDED_FOR&#39;: &#39;112.196.171.72&#39;,
  &#39;HTTP_X_FORWARDED_PORT&#39;: &#39;443&#39;,
  &#39;HTTP_X_FORWARDED_PROTO&#39;: &#39;https&#39;,
- &#39;HTTP_X_REQUEST_ID&#39;: &#39;6668cc87-5592-431f-abf8-0368227ccd51&#39;,
- &#39;HTTP_X_REQUEST_START&#39;: &#39;1473255125623&#39;,
+ &#39;HTTP_X_REQUEST_ID&#39;: &#39;dfa1a348-fd67-4cfa-a514-fb4d84b8b3e1&#39;,
+ &#39;HTTP_X_REQUEST_START&#39;: &#39;1473255342928&#39;,
  &#39;PATH_INFO&#39;: u&#39;/facebook_auth&#39;,
  &#39;QUERY_STRING&#39;: &#39;&#39;,
  &#39;RAW_URI&#39;: &#39;/facebook_auth&#39;,
- &#39;REMOTE_ADDR&#39;: &#39;10.51.167.27&#39;,
- &#39;REMOTE_PORT&#39;: &#39;20367&#39;,
+ &#39;REMOTE_ADDR&#39;: &#39;10.30.17.197&#39;,
+ &#39;REMOTE_PORT&#39;: &#39;28294&#39;,
  &#39;REQUEST_METHOD&#39;: &#39;POST&#39;,
  &#39;SCRIPT_NAME&#39;: u&#39;&#39;,
  &#39;SERVER_NAME&#39;: &#39;0.0.0.0&#39;,
- &#39;SERVER_PORT&#39;: &#39;33966&#39;,
+ &#39;SERVER_PORT&#39;: &#39;20453&#39;,
  &#39;SERVER_PROTOCOL&#39;: &#39;HTTP/1.1&#39;,
  &#39;SERVER_SOFTWARE&#39;: &#39;gunicorn/19.6.0&#39;,
- &#39;gunicorn.socket&#39;: &lt;socket._socketobject object at 0x7f785c1bf910&gt;,
- &#39;wsgi.errors&#39;: &lt;gunicorn.http.wsgi.WSGIErrorsWrapper object at 0x7f785c2cffd0&gt;,
+ &#39;gunicorn.socket&#39;: &lt;socket._socketobject object at 0x7fa989f17bb0&gt;,
+ &#39;wsgi.errors&#39;: &lt;gunicorn.http.wsgi.WSGIErrorsWrapper object at 0x7fa989f15c50&gt;,
  &#39;wsgi.file_wrapper&#39;: &lt;class &#39;gunicorn.http.wsgi.FileWrapper&#39;&gt;,
- &#39;wsgi.input&#39;: &lt;gunicorn.http.body.Body object at 0x7f785c1b8910&gt;,
+ &#39;wsgi.input&#39;: &lt;gunicorn.http.body.Body object at 0x7fa98aec0b90&gt;,
  &#39;wsgi.multiprocess&#39;: True,
  &#39;wsgi.multithread&#39;: False,
  &#39;wsgi.run_once&#39;: False,
@@ -635,13 +640,8 @@ META:{&#39;CONTENT_LENGTH&#39;: &#39;274&#39;,
                   </tr>
                 
                   <tr>
-                    <td>func</td>
-                    <td class="code"><pre>&lt;function dispatch at 0x7f785b8179b0&gt;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>self</td>
-                    <td class="code"><pre>&lt;chatbot.views.MyChatBotView object at 0x7f785b813850&gt;</pre></td>
+                    <td>kwargs2</td>
+                    <td class="code"><pre>{}</pre></td>
                   </tr>
                 
               </tbody>
@@ -653,13 +653,13 @@ META:{&#39;CONTENT_LENGTH&#39;: &#39;274&#39;,
           <code>/app/chatbot/views.py</code> in <code>dispatch</code>
 
           
-            <div class="context" id="c140154908104536">
+            <div class="context" id="c140366140340848">
               
-                <ol start="24" class="pre-context" id="pre140154908104536"><li onclick="toggle('pre140154908104536', 'post140154908104536')"><pre>		if self.request.GET[&#39;hub.verify_token&#39;]==VERIFY_TOKEN:</pre></li><li onclick="toggle('pre140154908104536', 'post140154908104536')"><pre>			return HttpResponse(self.request.GET[&#39;hub.challenge&#39;])</pre></li><li onclick="toggle('pre140154908104536', 'post140154908104536')"><pre>		else:</pre></li><li onclick="toggle('pre140154908104536', 'post140154908104536')"><pre>			return HttpResponse(&#39;oops invalid token&#39;)</pre></li><li onclick="toggle('pre140154908104536', 'post140154908104536')"><pre></pre></li><li onclick="toggle('pre140154908104536', 'post140154908104536')"><pre>	@method_decorator(csrf_exempt)</pre></li><li onclick="toggle('pre140154908104536', 'post140154908104536')"><pre>	def dispatch(self,request,*args,**kwargs):</pre></li></ol>
+                <ol start="24" class="pre-context" id="pre140366140340848"><li onclick="toggle('pre140366140340848', 'post140366140340848')"><pre>		if self.request.GET[&#39;hub.verify_token&#39;]==VERIFY_TOKEN:</pre></li><li onclick="toggle('pre140366140340848', 'post140366140340848')"><pre>			return HttpResponse(self.request.GET[&#39;hub.challenge&#39;])</pre></li><li onclick="toggle('pre140366140340848', 'post140366140340848')"><pre>		else:</pre></li><li onclick="toggle('pre140366140340848', 'post140366140340848')"><pre>			return HttpResponse(&#39;oops invalid token&#39;)</pre></li><li onclick="toggle('pre140366140340848', 'post140366140340848')"><pre></pre></li><li onclick="toggle('pre140366140340848', 'post140366140340848')"><pre>	@method_decorator(csrf_exempt)</pre></li><li onclick="toggle('pre140366140340848', 'post140366140340848')"><pre>	def dispatch(self,request,*args,**kwargs):</pre></li></ol>
               
-              <ol start="31" class="context-line"><li onclick="toggle('pre140154908104536', 'post140154908104536')"><pre>		return generic.View.dispatch(self,request,*args,**kwargs)</pre> <span>...</span></li></ol>
+              <ol start="31" class="context-line"><li onclick="toggle('pre140366140340848', 'post140366140340848')"><pre>		return generic.View.dispatch(self,request,*args,**kwargs)</pre> <span>...</span></li></ol>
               
-                <ol start='32' class="post-context" id="post140154908104536"><li onclick="toggle('pre140154908104536', 'post140154908104536')"><pre></pre></li><li onclick="toggle('pre140154908104536', 'post140154908104536')"><pre>	def post(self,request,*args,**kwargs):</pre></li><li onclick="toggle('pre140154908104536', 'post140154908104536')"><pre>		incoming_message=json.loads(self.request.body.decode(&#39;utf-8&#39;))</pre></li><li onclick="toggle('pre140154908104536', 'post140154908104536')"><pre>		print incoming_message</pre></li><li onclick="toggle('pre140154908104536', 'post140154908104536')"><pre></pre></li><li onclick="toggle('pre140154908104536', 'post140154908104536')"><pre>		for entry in incoming_message[&#39;entry&#39;]:</pre></li></ol>
+                <ol start='32' class="post-context" id="post140366140340848"><li onclick="toggle('pre140366140340848', 'post140366140340848')"><pre></pre></li><li onclick="toggle('pre140366140340848', 'post140366140340848')"><pre>	def post(self,request,*args,**kwargs):</pre></li><li onclick="toggle('pre140366140340848', 'post140366140340848')"><pre>		incoming_message=json.loads(self.request.body.decode(&#39;utf-8&#39;))</pre></li><li onclick="toggle('pre140366140340848', 'post140366140340848')"><pre>		print incoming_message</pre></li><li onclick="toggle('pre140366140340848', 'post140366140340848')"><pre></pre></li><li onclick="toggle('pre140366140340848', 'post140366140340848')"><pre>		for entry in incoming_mesage[&#39;entry&#39;]:</pre></li></ol>
               
             </div>
           
@@ -667,10 +667,10 @@ META:{&#39;CONTENT_LENGTH&#39;: &#39;274&#39;,
           
             <div class="commands">
                 
-                    <a href="#" onclick="return varToggle(this, '140154908104536')"><span>&#x25b6;</span> Local vars</a>
+                    <a href="#" onclick="return varToggle(this, '140366140340848')"><span>&#x25b6;</span> Local vars</a>
                 
             </div>
-            <table class="vars" id="v140154908104536">
+            <table class="vars" id="v140366140340848">
               <thead>
                 <tr>
                   <th>Variable</th>
@@ -680,18 +680,18 @@ META:{&#39;CONTENT_LENGTH&#39;: &#39;274&#39;,
               <tbody>
                 
                   <tr>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;chatbot.views.MyChatBotView object at 0x7fa989f38410&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
                     <td>request</td>
-                    <td class="code"><pre>&quot;&lt;WSGIRequest\npath:/facebook_auth,\nGET:&lt;QueryDict: {}&gt;,\nPOST:&lt;QueryDict: {}&gt;,\nCOOKIES:{},\nMETA:{&#39;CONTENT_LENGTH&#39;: &#39;274&#39;,\n &#39;CONTENT_TYPE&#39;: &#39;application/json&#39;,\n u&#39;CSRF_COOKIE&#39;: u&#39;O8kXfbEU5mvloBBirTAibCPJPvRaI9Bd&#39;,\n &#39;HTTP_ACCEPT&#39;: &#39;*/*&#39;,\n &#39;HTTP_CONNECTION&#39;: &#39;close&#39;,\n &#39;HTTP_CONNECT_TIME&#39;: &#39;1&#39;,\n &#39;HTTP_HOST&#39;: &#39;f-bot.herokuapp.com&#39;,\n &#39;HTTP_TOTAL_ROUTE_TIME&#39;: &#39;4003&#39;,\n &#39;HTTP_USER_AGENT&#39;: &#39;curl/7.47.0&#39;,\n &#39;HTTP_VIA&#39;: &#39;1.1 vegur&#39;,\n &#39;HTTP_X_FORWARDED_FOR&#39;: &#39;112.196.171.72&#39;,\n &#39;HTTP_X_FORWARDED_PORT&#39;: &#39;443&#39;,\n &#39;HTTP_X_FORWARDED_PROTO&#39;: &#39;https&#39;,\n &#39;HTTP_X_REQUEST_ID&#39;: &#39;6668cc87-5592-431f-abf8-0368227ccd51&#39;,\n &#39;HTTP_X_REQUEST_START&#39;: &#39;1473255125623&#39;,\n &#39;PATH_INFO&#39;: u&#39;/facebook_auth&#39;,\n &#39;QUERY_STRING&#39;: &#39;&#39;,\n &#39;RAW_URI&#39;: &#39;/facebook_auth&#39;,\n &#39;REMOTE_ADDR&#39;: &#39;10.51.167.27&#39;,\n &#39;REMOTE_PORT&#39;: &#39;20367&#39;,\n &#39;REQUEST_METHOD&#39;: &#39;POST&#39;,\n &#39;SCRIPT_NAME&#39;: u&#39;&#39;,\n &#39;SERVER_NAME&#39;: &#39;0.0.0.0&#39;,\n &#39;SERVER_PORT&#39;: &#39;33966&#39;,\n &#39;SERVER_PROTOCOL&#39;: &#39;HTTP/1.1&#39;,\n &#39;SERVER_SOFTWARE&#39;: &#39;gunicorn/19.6.0&#39;,\n &#39;gunicorn.socket&#39;: &lt;socket._socketobject object at 0x7f785c1bf910&gt;,\n &#39;wsgi.errors&#39;: &lt;gunicorn.http.wsgi.WSGIErrorsWrapper object at 0x7f785c2cffd0&gt;,\n &#39;wsgi.file_wrapper&#39;: &lt;class &#39;gunicorn.http.wsgi.FileWrapper&#39;&gt;,\n &#39;wsgi.input&#39;: &lt;gunicorn.http.body.Body object at 0x7f785c1b8910&gt;,\n &#39;wsgi.multiprocess&#39;: True,\n &#39;wsgi.multithread&#39;: False,\n &#39;wsgi.run_once&#39;: False,\n &#39;wsgi.url_scheme&#39;: &#39;https&#39;,\n &#39;wsgi.version&#39;: (1, 0)}&gt;&quot;</pre></td>
+                    <td class="code"><pre>&quot;&lt;WSGIRequest\npath:/facebook_auth,\nGET:&lt;QueryDict: {}&gt;,\nPOST:&lt;QueryDict: {}&gt;,\nCOOKIES:{},\nMETA:{&#39;CONTENT_LENGTH&#39;: &#39;274&#39;,\n &#39;CONTENT_TYPE&#39;: &#39;application/json&#39;,\n u&#39;CSRF_COOKIE&#39;: u&#39;RHxl8tC6V7RfPv7dymymK0nqDb2nshcd&#39;,\n &#39;HTTP_ACCEPT&#39;: &#39;*/*&#39;,\n &#39;HTTP_CONNECTION&#39;: &#39;close&#39;,\n &#39;HTTP_CONNECT_TIME&#39;: &#39;0&#39;,\n &#39;HTTP_HOST&#39;: &#39;f-bot.herokuapp.com&#39;,\n &#39;HTTP_TOTAL_ROUTE_TIME&#39;: &#39;0&#39;,\n &#39;HTTP_USER_AGENT&#39;: &#39;curl/7.47.0&#39;,\n &#39;HTTP_VIA&#39;: &#39;1.1 vegur&#39;,\n &#39;HTTP_X_FORWARDED_FOR&#39;: &#39;112.196.171.72&#39;,\n &#39;HTTP_X_FORWARDED_PORT&#39;: &#39;443&#39;,\n &#39;HTTP_X_FORWARDED_PROTO&#39;: &#39;https&#39;,\n &#39;HTTP_X_REQUEST_ID&#39;: &#39;dfa1a348-fd67-4cfa-a514-fb4d84b8b3e1&#39;,\n &#39;HTTP_X_REQUEST_START&#39;: &#39;1473255342928&#39;,\n &#39;PATH_INFO&#39;: u&#39;/facebook_auth&#39;,\n &#39;QUERY_STRING&#39;: &#39;&#39;,\n &#39;RAW_URI&#39;: &#39;/facebook_auth&#39;,\n &#39;REMOTE_ADDR&#39;: &#39;10.30.17.197&#39;,\n &#39;REMOTE_PORT&#39;: &#39;28294&#39;,\n &#39;REQUEST_METHOD&#39;: &#39;POST&#39;,\n &#39;SCRIPT_NAME&#39;: u&#39;&#39;,\n &#39;SERVER_NAME&#39;: &#39;0.0.0.0&#39;,\n &#39;SERVER_PORT&#39;: &#39;20453&#39;,\n &#39;SERVER_PROTOCOL&#39;: &#39;HTTP/1.1&#39;,\n &#39;SERVER_SOFTWARE&#39;: &#39;gunicorn/19.6.0&#39;,\n &#39;gunicorn.socket&#39;: &lt;socket._socketobject object at 0x7fa989f17bb0&gt;,\n &#39;wsgi.errors&#39;: &lt;gunicorn.http.wsgi.WSGIErrorsWrapper object at 0x7fa989f15c50&gt;,\n &#39;wsgi.file_wrapper&#39;: &lt;class &#39;gunicorn.http.wsgi.FileWrapper&#39;&gt;,\n &#39;wsgi.input&#39;: &lt;gunicorn.http.body.Body object at 0x7fa98aec0b90&gt;,\n &#39;wsgi.multiprocess&#39;: True,\n &#39;wsgi.multithread&#39;: False,\n &#39;wsgi.run_once&#39;: False,\n &#39;wsgi.url_scheme&#39;: &#39;https&#39;,\n &#39;wsgi.version&#39;: (1, 0)}&gt;&quot;</pre></td>
                   </tr>
                 
                   <tr>
                     <td>kwargs</td>
                     <td class="code"><pre>{}</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>self</td>
-                    <td class="code"><pre>&lt;chatbot.views.MyChatBotView object at 0x7f785b813850&gt;</pre></td>
                   </tr>
                 
                   <tr>
@@ -708,13 +708,13 @@ META:{&#39;CONTENT_LENGTH&#39;: &#39;274&#39;,
           <code>/app/.heroku/python/lib/python2.7/site-packages/django/views/generic/base.py</code> in <code>dispatch</code>
 
           
-            <div class="context" id="c140154908104248">
+            <div class="context" id="c140366154429360">
               
-                <ol start="80" class="pre-context" id="pre140154908104248"><li onclick="toggle('pre140154908104248', 'post140154908104248')"><pre>        # Try to dispatch to the right method; if a method doesn&#39;t exist,</pre></li><li onclick="toggle('pre140154908104248', 'post140154908104248')"><pre>        # defer to the error handler. Also defer to the error handler if the</pre></li><li onclick="toggle('pre140154908104248', 'post140154908104248')"><pre>        # request method isn&#39;t on the approved list.</pre></li><li onclick="toggle('pre140154908104248', 'post140154908104248')"><pre>        if request.method.lower() in self.http_method_names:</pre></li><li onclick="toggle('pre140154908104248', 'post140154908104248')"><pre>            handler = getattr(self, request.method.lower(), self.http_method_not_allowed)</pre></li><li onclick="toggle('pre140154908104248', 'post140154908104248')"><pre>        else:</pre></li><li onclick="toggle('pre140154908104248', 'post140154908104248')"><pre>            handler = self.http_method_not_allowed</pre></li></ol>
+                <ol start="80" class="pre-context" id="pre140366154429360"><li onclick="toggle('pre140366154429360', 'post140366154429360')"><pre>        # Try to dispatch to the right method; if a method doesn&#39;t exist,</pre></li><li onclick="toggle('pre140366154429360', 'post140366154429360')"><pre>        # defer to the error handler. Also defer to the error handler if the</pre></li><li onclick="toggle('pre140366154429360', 'post140366154429360')"><pre>        # request method isn&#39;t on the approved list.</pre></li><li onclick="toggle('pre140366154429360', 'post140366154429360')"><pre>        if request.method.lower() in self.http_method_names:</pre></li><li onclick="toggle('pre140366154429360', 'post140366154429360')"><pre>            handler = getattr(self, request.method.lower(), self.http_method_not_allowed)</pre></li><li onclick="toggle('pre140366154429360', 'post140366154429360')"><pre>        else:</pre></li><li onclick="toggle('pre140366154429360', 'post140366154429360')"><pre>            handler = self.http_method_not_allowed</pre></li></ol>
               
-              <ol start="87" class="context-line"><li onclick="toggle('pre140154908104248', 'post140154908104248')"><pre>        return handler(request, *args, **kwargs)</pre> <span>...</span></li></ol>
+              <ol start="87" class="context-line"><li onclick="toggle('pre140366154429360', 'post140366154429360')"><pre>        return handler(request, *args, **kwargs)</pre> <span>...</span></li></ol>
               
-                <ol start='88' class="post-context" id="post140154908104248"><li onclick="toggle('pre140154908104248', 'post140154908104248')"><pre></pre></li><li onclick="toggle('pre140154908104248', 'post140154908104248')"><pre>    def http_method_not_allowed(self, request, *args, **kwargs):</pre></li><li onclick="toggle('pre140154908104248', 'post140154908104248')"><pre>        logger.warning(&#39;Method Not Allowed (%s): %s&#39;, request.method, request.path,</pre></li><li onclick="toggle('pre140154908104248', 'post140154908104248')"><pre>            extra={</pre></li><li onclick="toggle('pre140154908104248', 'post140154908104248')"><pre>                &#39;status_code&#39;: 405,</pre></li><li onclick="toggle('pre140154908104248', 'post140154908104248')"><pre>                &#39;request&#39;: request</pre></li></ol>
+                <ol start='88' class="post-context" id="post140366154429360"><li onclick="toggle('pre140366154429360', 'post140366154429360')"><pre></pre></li><li onclick="toggle('pre140366154429360', 'post140366154429360')"><pre>    def http_method_not_allowed(self, request, *args, **kwargs):</pre></li><li onclick="toggle('pre140366154429360', 'post140366154429360')"><pre>        logger.warning(&#39;Method Not Allowed (%s): %s&#39;, request.method, request.path,</pre></li><li onclick="toggle('pre140366154429360', 'post140366154429360')"><pre>            extra={</pre></li><li onclick="toggle('pre140366154429360', 'post140366154429360')"><pre>                &#39;status_code&#39;: 405,</pre></li><li onclick="toggle('pre140366154429360', 'post140366154429360')"><pre>                &#39;request&#39;: request</pre></li></ol>
               
             </div>
           
@@ -722,10 +722,10 @@ META:{&#39;CONTENT_LENGTH&#39;: &#39;274&#39;,
           
             <div class="commands">
                 
-                    <a href="#" onclick="return varToggle(this, '140154908104248')"><span>&#x25b6;</span> Local vars</a>
+                    <a href="#" onclick="return varToggle(this, '140366154429360')"><span>&#x25b6;</span> Local vars</a>
                 
             </div>
-            <table class="vars" id="v140154908104248">
+            <table class="vars" id="v140366154429360">
               <thead>
                 <tr>
                   <th>Variable</th>
@@ -735,23 +735,23 @@ META:{&#39;CONTENT_LENGTH&#39;: &#39;274&#39;,
               <tbody>
                 
                   <tr>
-                    <td>request</td>
-                    <td class="code"><pre>&quot;&lt;WSGIRequest\npath:/facebook_auth,\nGET:&lt;QueryDict: {}&gt;,\nPOST:&lt;QueryDict: {}&gt;,\nCOOKIES:{},\nMETA:{&#39;CONTENT_LENGTH&#39;: &#39;274&#39;,\n &#39;CONTENT_TYPE&#39;: &#39;application/json&#39;,\n u&#39;CSRF_COOKIE&#39;: u&#39;O8kXfbEU5mvloBBirTAibCPJPvRaI9Bd&#39;,\n &#39;HTTP_ACCEPT&#39;: &#39;*/*&#39;,\n &#39;HTTP_CONNECTION&#39;: &#39;close&#39;,\n &#39;HTTP_CONNECT_TIME&#39;: &#39;1&#39;,\n &#39;HTTP_HOST&#39;: &#39;f-bot.herokuapp.com&#39;,\n &#39;HTTP_TOTAL_ROUTE_TIME&#39;: &#39;4003&#39;,\n &#39;HTTP_USER_AGENT&#39;: &#39;curl/7.47.0&#39;,\n &#39;HTTP_VIA&#39;: &#39;1.1 vegur&#39;,\n &#39;HTTP_X_FORWARDED_FOR&#39;: &#39;112.196.171.72&#39;,\n &#39;HTTP_X_FORWARDED_PORT&#39;: &#39;443&#39;,\n &#39;HTTP_X_FORWARDED_PROTO&#39;: &#39;https&#39;,\n &#39;HTTP_X_REQUEST_ID&#39;: &#39;6668cc87-5592-431f-abf8-0368227ccd51&#39;,\n &#39;HTTP_X_REQUEST_START&#39;: &#39;1473255125623&#39;,\n &#39;PATH_INFO&#39;: u&#39;/facebook_auth&#39;,\n &#39;QUERY_STRING&#39;: &#39;&#39;,\n &#39;RAW_URI&#39;: &#39;/facebook_auth&#39;,\n &#39;REMOTE_ADDR&#39;: &#39;10.51.167.27&#39;,\n &#39;REMOTE_PORT&#39;: &#39;20367&#39;,\n &#39;REQUEST_METHOD&#39;: &#39;POST&#39;,\n &#39;SCRIPT_NAME&#39;: u&#39;&#39;,\n &#39;SERVER_NAME&#39;: &#39;0.0.0.0&#39;,\n &#39;SERVER_PORT&#39;: &#39;33966&#39;,\n &#39;SERVER_PROTOCOL&#39;: &#39;HTTP/1.1&#39;,\n &#39;SERVER_SOFTWARE&#39;: &#39;gunicorn/19.6.0&#39;,\n &#39;gunicorn.socket&#39;: &lt;socket._socketobject object at 0x7f785c1bf910&gt;,\n &#39;wsgi.errors&#39;: &lt;gunicorn.http.wsgi.WSGIErrorsWrapper object at 0x7f785c2cffd0&gt;,\n &#39;wsgi.file_wrapper&#39;: &lt;class &#39;gunicorn.http.wsgi.FileWrapper&#39;&gt;,\n &#39;wsgi.input&#39;: &lt;gunicorn.http.body.Body object at 0x7f785c1b8910&gt;,\n &#39;wsgi.multiprocess&#39;: True,\n &#39;wsgi.multithread&#39;: False,\n &#39;wsgi.run_once&#39;: False,\n &#39;wsgi.url_scheme&#39;: &#39;https&#39;,\n &#39;wsgi.version&#39;: (1, 0)}&gt;&quot;</pre></td>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;chatbot.views.MyChatBotView object at 0x7fa989f38410&gt;</pre></td>
                   </tr>
                 
                   <tr>
                     <td>handler</td>
-                    <td class="code"><pre>&lt;bound method MyChatBotView.post of &lt;chatbot.views.MyChatBotView object at 0x7f785b813850&gt;&gt;</pre></td>
+                    <td class="code"><pre>&lt;bound method MyChatBotView.post of &lt;chatbot.views.MyChatBotView object at 0x7fa989f38410&gt;&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>request</td>
+                    <td class="code"><pre>&quot;&lt;WSGIRequest\npath:/facebook_auth,\nGET:&lt;QueryDict: {}&gt;,\nPOST:&lt;QueryDict: {}&gt;,\nCOOKIES:{},\nMETA:{&#39;CONTENT_LENGTH&#39;: &#39;274&#39;,\n &#39;CONTENT_TYPE&#39;: &#39;application/json&#39;,\n u&#39;CSRF_COOKIE&#39;: u&#39;RHxl8tC6V7RfPv7dymymK0nqDb2nshcd&#39;,\n &#39;HTTP_ACCEPT&#39;: &#39;*/*&#39;,\n &#39;HTTP_CONNECTION&#39;: &#39;close&#39;,\n &#39;HTTP_CONNECT_TIME&#39;: &#39;0&#39;,\n &#39;HTTP_HOST&#39;: &#39;f-bot.herokuapp.com&#39;,\n &#39;HTTP_TOTAL_ROUTE_TIME&#39;: &#39;0&#39;,\n &#39;HTTP_USER_AGENT&#39;: &#39;curl/7.47.0&#39;,\n &#39;HTTP_VIA&#39;: &#39;1.1 vegur&#39;,\n &#39;HTTP_X_FORWARDED_FOR&#39;: &#39;112.196.171.72&#39;,\n &#39;HTTP_X_FORWARDED_PORT&#39;: &#39;443&#39;,\n &#39;HTTP_X_FORWARDED_PROTO&#39;: &#39;https&#39;,\n &#39;HTTP_X_REQUEST_ID&#39;: &#39;dfa1a348-fd67-4cfa-a514-fb4d84b8b3e1&#39;,\n &#39;HTTP_X_REQUEST_START&#39;: &#39;1473255342928&#39;,\n &#39;PATH_INFO&#39;: u&#39;/facebook_auth&#39;,\n &#39;QUERY_STRING&#39;: &#39;&#39;,\n &#39;RAW_URI&#39;: &#39;/facebook_auth&#39;,\n &#39;REMOTE_ADDR&#39;: &#39;10.30.17.197&#39;,\n &#39;REMOTE_PORT&#39;: &#39;28294&#39;,\n &#39;REQUEST_METHOD&#39;: &#39;POST&#39;,\n &#39;SCRIPT_NAME&#39;: u&#39;&#39;,\n &#39;SERVER_NAME&#39;: &#39;0.0.0.0&#39;,\n &#39;SERVER_PORT&#39;: &#39;20453&#39;,\n &#39;SERVER_PROTOCOL&#39;: &#39;HTTP/1.1&#39;,\n &#39;SERVER_SOFTWARE&#39;: &#39;gunicorn/19.6.0&#39;,\n &#39;gunicorn.socket&#39;: &lt;socket._socketobject object at 0x7fa989f17bb0&gt;,\n &#39;wsgi.errors&#39;: &lt;gunicorn.http.wsgi.WSGIErrorsWrapper object at 0x7fa989f15c50&gt;,\n &#39;wsgi.file_wrapper&#39;: &lt;class &#39;gunicorn.http.wsgi.FileWrapper&#39;&gt;,\n &#39;wsgi.input&#39;: &lt;gunicorn.http.body.Body object at 0x7fa98aec0b90&gt;,\n &#39;wsgi.multiprocess&#39;: True,\n &#39;wsgi.multithread&#39;: False,\n &#39;wsgi.run_once&#39;: False,\n &#39;wsgi.url_scheme&#39;: &#39;https&#39;,\n &#39;wsgi.version&#39;: (1, 0)}&gt;&quot;</pre></td>
                   </tr>
                 
                   <tr>
                     <td>kwargs</td>
                     <td class="code"><pre>{}</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>self</td>
-                    <td class="code"><pre>&lt;chatbot.views.MyChatBotView object at 0x7f785b813850&gt;</pre></td>
                   </tr>
                 
                   <tr>
@@ -768,13 +768,13 @@ META:{&#39;CONTENT_LENGTH&#39;: &#39;274&#39;,
           <code>/app/chatbot/views.py</code> in <code>post</code>
 
           
-            <div class="context" id="c140154931872328">
+            <div class="context" id="c140366156776296">
               
-                <ol start="34" class="pre-context" id="pre140154931872328"><li onclick="toggle('pre140154931872328', 'post140154931872328')"><pre>		incoming_message=json.loads(self.request.body.decode(&#39;utf-8&#39;))</pre></li><li onclick="toggle('pre140154931872328', 'post140154931872328')"><pre>		print incoming_message</pre></li><li onclick="toggle('pre140154931872328', 'post140154931872328')"><pre></pre></li><li onclick="toggle('pre140154931872328', 'post140154931872328')"><pre>		for entry in incoming_message[&#39;entry&#39;]:</pre></li><li onclick="toggle('pre140154931872328', 'post140154931872328')"><pre>			for message in entry[&#39;messaging&#39;]:</pre></li><li onclick="toggle('pre140154931872328', 'post140154931872328')"><pre>				print message</pre></li><li onclick="toggle('pre140154931872328', 'post140154931872328')"><pre>				message_text = message[&#39;message&#39;][&#39;text&#39;]</pre></li></ol>
+                <ol start="30" class="pre-context" id="pre140366156776296"><li onclick="toggle('pre140366156776296', 'post140366156776296')"><pre>	def dispatch(self,request,*args,**kwargs):</pre></li><li onclick="toggle('pre140366156776296', 'post140366156776296')"><pre>		return generic.View.dispatch(self,request,*args,**kwargs)</pre></li><li onclick="toggle('pre140366156776296', 'post140366156776296')"><pre></pre></li><li onclick="toggle('pre140366156776296', 'post140366156776296')"><pre>	def post(self,request,*args,**kwargs):</pre></li><li onclick="toggle('pre140366156776296', 'post140366156776296')"><pre>		incoming_message=json.loads(self.request.body.decode(&#39;utf-8&#39;))</pre></li><li onclick="toggle('pre140366156776296', 'post140366156776296')"><pre>		print incoming_message</pre></li><li onclick="toggle('pre140366156776296', 'post140366156776296')"><pre></pre></li></ol>
               
-              <ol start="41" class="context-line"><li onclick="toggle('pre140154931872328', 'post140154931872328')"><pre>				post_facebook_message(sender_id,message_text) </pre> <span>...</span></li></ol>
+              <ol start="37" class="context-line"><li onclick="toggle('pre140366156776296', 'post140366156776296')"><pre>		for entry in incoming_mesage[&#39;entry&#39;]:</pre> <span>...</span></li></ol>
               
-                <ol start='42' class="post-context" id="post140154931872328"><li onclick="toggle('pre140154931872328', 'post140154931872328')"><pre></pre></li><li onclick="toggle('pre140154931872328', 'post140154931872328')"><pre>def index(request):</pre></li><li onclick="toggle('pre140154931872328', 'post140154931872328')"><pre>	return HttpResponse(&#39;hello&#39;)</pre></li></ol>
+                <ol start='38' class="post-context" id="post140366156776296"><li onclick="toggle('pre140366156776296', 'post140366156776296')"><pre>			for message in entry[&#39;messaging&#39;]:</pre></li><li onclick="toggle('pre140366156776296', 'post140366156776296')"><pre>				print message</pre></li><li onclick="toggle('pre140366156776296', 'post140366156776296')"><pre>				try:</pre></li><li onclick="toggle('pre140366156776296', 'post140366156776296')"><pre>					sender_id = message[&#39;sender&#39;][&#39;id&#39;]</pre></li><li onclick="toggle('pre140366156776296', 'post140366156776296')"><pre>					message_text = message[&#39;message&#39;][&#39;text&#39;]</pre></li><li onclick="toggle('pre140366156776296', 'post140366156776296')"><pre>					post_facebook_message(sender_id,message_text) </pre></li></ol>
               
             </div>
           
@@ -782,10 +782,10 @@ META:{&#39;CONTENT_LENGTH&#39;: &#39;274&#39;,
           
             <div class="commands">
                 
-                    <a href="#" onclick="return varToggle(this, '140154931872328')"><span>&#x25b6;</span> Local vars</a>
+                    <a href="#" onclick="return varToggle(this, '140366156776296')"><span>&#x25b6;</span> Local vars</a>
                 
             </div>
-            <table class="vars" id="v140154931872328">
+            <table class="vars" id="v140366156776296">
               <thead>
                 <tr>
                   <th>Variable</th>
@@ -796,27 +796,12 @@ META:{&#39;CONTENT_LENGTH&#39;: &#39;274&#39;,
                 
                   <tr>
                     <td>self</td>
-                    <td class="code"><pre>&lt;chatbot.views.MyChatBotView object at 0x7f785b813850&gt;</pre></td>
+                    <td class="code"><pre>&lt;chatbot.views.MyChatBotView object at 0x7fa989f38410&gt;</pre></td>
                   </tr>
                 
                   <tr>
-                    <td>message</td>
-                    <td class="code"><pre>{u&#39;message&#39;: {u&#39;mid&#39;: u&#39;mid.1460620432888:f8e3412003d2d1cd93&#39;,
-              u&#39;seq&#39;: 12604,
-              u&#39;text&#39;: u&#39;Testing Chat Bot ..&#39;},
- u&#39;recipient&#39;: {u&#39;id&#39;: 100001835423397},
- u&#39;sender&#39;: {u&#39;id&#39;: 186965028390172},
- u&#39;timestamp&#39;: 1460620433123}</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>args</td>
-                    <td class="code"><pre>()</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>message_text</td>
-                    <td class="code"><pre>u&#39;Testing Chat Bot ..&#39;</pre></td>
+                    <td>request</td>
+                    <td class="code"><pre>&quot;&lt;WSGIRequest\npath:/facebook_auth,\nGET:&lt;QueryDict: {}&gt;,\nPOST:&lt;QueryDict: {}&gt;,\nCOOKIES:{},\nMETA:{&#39;CONTENT_LENGTH&#39;: &#39;274&#39;,\n &#39;CONTENT_TYPE&#39;: &#39;application/json&#39;,\n u&#39;CSRF_COOKIE&#39;: u&#39;RHxl8tC6V7RfPv7dymymK0nqDb2nshcd&#39;,\n &#39;HTTP_ACCEPT&#39;: &#39;*/*&#39;,\n &#39;HTTP_CONNECTION&#39;: &#39;close&#39;,\n &#39;HTTP_CONNECT_TIME&#39;: &#39;0&#39;,\n &#39;HTTP_HOST&#39;: &#39;f-bot.herokuapp.com&#39;,\n &#39;HTTP_TOTAL_ROUTE_TIME&#39;: &#39;0&#39;,\n &#39;HTTP_USER_AGENT&#39;: &#39;curl/7.47.0&#39;,\n &#39;HTTP_VIA&#39;: &#39;1.1 vegur&#39;,\n &#39;HTTP_X_FORWARDED_FOR&#39;: &#39;112.196.171.72&#39;,\n &#39;HTTP_X_FORWARDED_PORT&#39;: &#39;443&#39;,\n &#39;HTTP_X_FORWARDED_PROTO&#39;: &#39;https&#39;,\n &#39;HTTP_X_REQUEST_ID&#39;: &#39;dfa1a348-fd67-4cfa-a514-fb4d84b8b3e1&#39;,\n &#39;HTTP_X_REQUEST_START&#39;: &#39;1473255342928&#39;,\n &#39;PATH_INFO&#39;: u&#39;/facebook_auth&#39;,\n &#39;QUERY_STRING&#39;: &#39;&#39;,\n &#39;RAW_URI&#39;: &#39;/facebook_auth&#39;,\n &#39;REMOTE_ADDR&#39;: &#39;10.30.17.197&#39;,\n &#39;REMOTE_PORT&#39;: &#39;28294&#39;,\n &#39;REQUEST_METHOD&#39;: &#39;POST&#39;,\n &#39;SCRIPT_NAME&#39;: u&#39;&#39;,\n &#39;SERVER_NAME&#39;: &#39;0.0.0.0&#39;,\n &#39;SERVER_PORT&#39;: &#39;20453&#39;,\n &#39;SERVER_PROTOCOL&#39;: &#39;HTTP/1.1&#39;,\n &#39;SERVER_SOFTWARE&#39;: &#39;gunicorn/19.6.0&#39;,\n &#39;gunicorn.socket&#39;: &lt;socket._socketobject object at 0x7fa989f17bb0&gt;,\n &#39;wsgi.errors&#39;: &lt;gunicorn.http.wsgi.WSGIErrorsWrapper object at 0x7fa989f15c50&gt;,\n &#39;wsgi.file_wrapper&#39;: &lt;class &#39;gunicorn.http.wsgi.FileWrapper&#39;&gt;,\n &#39;wsgi.input&#39;: &lt;gunicorn.http.body.Body object at 0x7fa98aec0b90&gt;,\n &#39;wsgi.multiprocess&#39;: True,\n &#39;wsgi.multithread&#39;: False,\n &#39;wsgi.run_once&#39;: False,\n &#39;wsgi.url_scheme&#39;: &#39;https&#39;,\n &#39;wsgi.version&#39;: (1, 0)}&gt;&quot;</pre></td>
                   </tr>
                 
                   <tr>
@@ -833,25 +818,13 @@ META:{&#39;CONTENT_LENGTH&#39;: &#39;274&#39;,
                   </tr>
                 
                   <tr>
-                    <td>request</td>
-                    <td class="code"><pre>&quot;&lt;WSGIRequest\npath:/facebook_auth,\nGET:&lt;QueryDict: {}&gt;,\nPOST:&lt;QueryDict: {}&gt;,\nCOOKIES:{},\nMETA:{&#39;CONTENT_LENGTH&#39;: &#39;274&#39;,\n &#39;CONTENT_TYPE&#39;: &#39;application/json&#39;,\n u&#39;CSRF_COOKIE&#39;: u&#39;O8kXfbEU5mvloBBirTAibCPJPvRaI9Bd&#39;,\n &#39;HTTP_ACCEPT&#39;: &#39;*/*&#39;,\n &#39;HTTP_CONNECTION&#39;: &#39;close&#39;,\n &#39;HTTP_CONNECT_TIME&#39;: &#39;1&#39;,\n &#39;HTTP_HOST&#39;: &#39;f-bot.herokuapp.com&#39;,\n &#39;HTTP_TOTAL_ROUTE_TIME&#39;: &#39;4003&#39;,\n &#39;HTTP_USER_AGENT&#39;: &#39;curl/7.47.0&#39;,\n &#39;HTTP_VIA&#39;: &#39;1.1 vegur&#39;,\n &#39;HTTP_X_FORWARDED_FOR&#39;: &#39;112.196.171.72&#39;,\n &#39;HTTP_X_FORWARDED_PORT&#39;: &#39;443&#39;,\n &#39;HTTP_X_FORWARDED_PROTO&#39;: &#39;https&#39;,\n &#39;HTTP_X_REQUEST_ID&#39;: &#39;6668cc87-5592-431f-abf8-0368227ccd51&#39;,\n &#39;HTTP_X_REQUEST_START&#39;: &#39;1473255125623&#39;,\n &#39;PATH_INFO&#39;: u&#39;/facebook_auth&#39;,\n &#39;QUERY_STRING&#39;: &#39;&#39;,\n &#39;RAW_URI&#39;: &#39;/facebook_auth&#39;,\n &#39;REMOTE_ADDR&#39;: &#39;10.51.167.27&#39;,\n &#39;REMOTE_PORT&#39;: &#39;20367&#39;,\n &#39;REQUEST_METHOD&#39;: &#39;POST&#39;,\n &#39;SCRIPT_NAME&#39;: u&#39;&#39;,\n &#39;SERVER_NAME&#39;: &#39;0.0.0.0&#39;,\n &#39;SERVER_PORT&#39;: &#39;33966&#39;,\n &#39;SERVER_PROTOCOL&#39;: &#39;HTTP/1.1&#39;,\n &#39;SERVER_SOFTWARE&#39;: &#39;gunicorn/19.6.0&#39;,\n &#39;gunicorn.socket&#39;: &lt;socket._socketobject object at 0x7f785c1bf910&gt;,\n &#39;wsgi.errors&#39;: &lt;gunicorn.http.wsgi.WSGIErrorsWrapper object at 0x7f785c2cffd0&gt;,\n &#39;wsgi.file_wrapper&#39;: &lt;class &#39;gunicorn.http.wsgi.FileWrapper&#39;&gt;,\n &#39;wsgi.input&#39;: &lt;gunicorn.http.body.Body object at 0x7f785c1b8910&gt;,\n &#39;wsgi.multiprocess&#39;: True,\n &#39;wsgi.multithread&#39;: False,\n &#39;wsgi.run_once&#39;: False,\n &#39;wsgi.url_scheme&#39;: &#39;https&#39;,\n &#39;wsgi.version&#39;: (1, 0)}&gt;&quot;</pre></td>
+                    <td>args</td>
+                    <td class="code"><pre>()</pre></td>
                   </tr>
                 
                   <tr>
                     <td>kwargs</td>
                     <td class="code"><pre>{}</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>entry</td>
-                    <td class="code"><pre>{u&#39;id&#39;: 43674671559,
- u&#39;messaging&#39;: [{u&#39;message&#39;: {u&#39;mid&#39;: u&#39;mid.1460620432888:f8e3412003d2d1cd93&#39;,
-                              u&#39;seq&#39;: 12604,
-                              u&#39;text&#39;: u&#39;Testing Chat Bot ..&#39;},
-                 u&#39;recipient&#39;: {u&#39;id&#39;: 100001835423397},
-                 u&#39;sender&#39;: {u&#39;id&#39;: 186965028390172},
-                 u&#39;timestamp&#39;: 1460620433123}],
- u&#39;time&#39;: 1460620433256}</pre></td>
                   </tr>
                 
               </tbody>
@@ -912,10 +885,10 @@ File "/app/chatbot/views.py" in dispatch
 File "/app/.heroku/python/lib/python2.7/site-packages/django/views/generic/base.py" in dispatch
   87.         return handler(request, *args, **kwargs)
 File "/app/chatbot/views.py" in post
-  41. 				post_facebook_message(sender_id,message_text) 
+  37. 		for entry in incoming_mesage[&#39;entry&#39;]:
 
 Exception Type: NameError at /facebook_auth
-Exception Value: global name &#39;sender_id&#39; is not defined
+Exception Value: global name &#39;incoming_mesage&#39; is not defined
 </textarea>
   <br><br>
   <input type="submit" value="Share this traceback on a public Web site">
@@ -960,58 +933,13 @@ Exception Value: global name &#39;sender_id&#39; is not defined
     <tbody>
       
         <tr>
-          <td>SERVER_SOFTWARE</td>
-          <td class="code"><pre>&#39;gunicorn/19.6.0&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>HTTP_CONNECTION</td>
-          <td class="code"><pre>&#39;close&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SERVER_NAME</td>
-          <td class="code"><pre>&#39;0.0.0.0&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>HTTP_X_FORWARDED_PORT</td>
-          <td class="code"><pre>&#39;443&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SCRIPT_NAME</td>
-          <td class="code"><pre>u&#39;&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>HTTP_VIA</td>
-          <td class="code"><pre>&#39;1.1 vegur&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>HTTP_X_FORWARDED_FOR</td>
-          <td class="code"><pre>&#39;112.196.171.72&#39;</pre></td>
+          <td>gunicorn.socket</td>
+          <td class="code"><pre>&lt;socket._socketobject object at 0x7fa989f17bb0&gt;</pre></td>
         </tr>
       
         <tr>
           <td>SERVER_PORT</td>
-          <td class="code"><pre>&#39;33966&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>HTTP_X_REQUEST_ID</td>
-          <td class="code"><pre>&#39;6668cc87-5592-431f-abf8-0368227ccd51&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>REQUEST_METHOD</td>
-          <td class="code"><pre>&#39;POST&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>HTTP_CONNECT_TIME</td>
-          <td class="code"><pre>&#39;1&#39;</pre></td>
+          <td class="code"><pre>&#39;20453&#39;</pre></td>
         </tr>
       
         <tr>
@@ -1020,28 +948,18 @@ Exception Value: global name &#39;sender_id&#39; is not defined
         </tr>
       
         <tr>
-          <td>HTTP_TOTAL_ROUTE_TIME</td>
-          <td class="code"><pre>&#39;4003&#39;</pre></td>
+          <td>QUERY_STRING</td>
+          <td class="code"><pre>&#39;&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.input</td>
+          <td class="code"><pre>&lt;gunicorn.http.body.Body object at 0x7fa98aec0b90&gt;</pre></td>
         </tr>
       
         <tr>
           <td>REMOTE_PORT</td>
-          <td class="code"><pre>&#39;20367&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>HTTP_X_REQUEST_START</td>
-          <td class="code"><pre>&#39;1473255125623&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>wsgi.url_scheme</td>
-          <td class="code"><pre>&#39;https&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>CSRF_COOKIE</td>
-          <td class="code"><pre>u&#39;O8kXfbEU5mvloBBirTAibCPJPvRaI9Bd&#39;</pre></td>
+          <td class="code"><pre>&#39;28294&#39;</pre></td>
         </tr>
       
         <tr>
@@ -1050,63 +968,13 @@ Exception Value: global name &#39;sender_id&#39; is not defined
         </tr>
       
         <tr>
-          <td>QUERY_STRING</td>
-          <td class="code"><pre>&#39;&#39;</pre></td>
+          <td>HTTP_X_REQUEST_START</td>
+          <td class="code"><pre>&#39;1473255342928&#39;</pre></td>
         </tr>
       
         <tr>
-          <td>HTTP_USER_AGENT</td>
-          <td class="code"><pre>&#39;curl/7.47.0&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>HTTP_HOST</td>
-          <td class="code"><pre>&#39;f-bot.herokuapp.com&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>gunicorn.socket</td>
-          <td class="code"><pre>&lt;socket._socketobject object at 0x7f785c1bf910&gt;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>RAW_URI</td>
-          <td class="code"><pre>&#39;/facebook_auth&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SERVER_PROTOCOL</td>
-          <td class="code"><pre>&#39;HTTP/1.1&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>HTTP_ACCEPT</td>
-          <td class="code"><pre>&#39;*/*&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>PATH_INFO</td>
-          <td class="code"><pre>u&#39;/facebook_auth&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>CONTENT_TYPE</td>
-          <td class="code"><pre>&#39;application/json&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>wsgi.multithread</td>
-          <td class="code"><pre>False</pre></td>
-        </tr>
-      
-        <tr>
-          <td>wsgi.multiprocess</td>
-          <td class="code"><pre>True</pre></td>
-        </tr>
-      
-        <tr>
-          <td>REMOTE_ADDR</td>
-          <td class="code"><pre>&#39;10.51.167.27&#39;</pre></td>
+          <td>HTTP_X_FORWARDED_PORT</td>
+          <td class="code"><pre>&#39;443&#39;</pre></td>
         </tr>
       
         <tr>
@@ -1115,13 +983,68 @@ Exception Value: global name &#39;sender_id&#39; is not defined
         </tr>
       
         <tr>
-          <td>CONTENT_LENGTH</td>
-          <td class="code"><pre>&#39;274&#39;</pre></td>
+          <td>HTTP_TOTAL_ROUTE_TIME</td>
+          <td class="code"><pre>&#39;0&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CONTENT_TYPE</td>
+          <td class="code"><pre>&#39;application/json&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_USER_AGENT</td>
+          <td class="code"><pre>&#39;curl/7.47.0&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_ACCEPT</td>
+          <td class="code"><pre>&#39;*/*&#39;</pre></td>
         </tr>
       
         <tr>
           <td>wsgi.errors</td>
-          <td class="code"><pre>&lt;gunicorn.http.wsgi.WSGIErrorsWrapper object at 0x7f785c2cffd0&gt;</pre></td>
+          <td class="code"><pre>&lt;gunicorn.http.wsgi.WSGIErrorsWrapper object at 0x7fa989f15c50&gt;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SERVER_PROTOCOL</td>
+          <td class="code"><pre>&#39;HTTP/1.1&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.multithread</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_X_FORWARDED_FOR</td>
+          <td class="code"><pre>&#39;112.196.171.72&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>REQUEST_METHOD</td>
+          <td class="code"><pre>&#39;POST&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SCRIPT_NAME</td>
+          <td class="code"><pre>u&#39;&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_HOST</td>
+          <td class="code"><pre>&#39;f-bot.herokuapp.com&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SERVER_NAME</td>
+          <td class="code"><pre>&#39;0.0.0.0&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_CONNECT_TIME</td>
+          <td class="code"><pre>&#39;0&#39;</pre></td>
         </tr>
       
         <tr>
@@ -1130,8 +1053,58 @@ Exception Value: global name &#39;sender_id&#39; is not defined
         </tr>
       
         <tr>
-          <td>wsgi.input</td>
-          <td class="code"><pre>&lt;gunicorn.http.body.Body object at 0x7f785c1b8910&gt;</pre></td>
+          <td>RAW_URI</td>
+          <td class="code"><pre>&#39;/facebook_auth&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_COOKIE</td>
+          <td class="code"><pre>u&#39;RHxl8tC6V7RfPv7dymymK0nqDb2nshcd&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_CONNECTION</td>
+          <td class="code"><pre>&#39;close&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_VIA</td>
+          <td class="code"><pre>&#39;1.1 vegur&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_X_REQUEST_ID</td>
+          <td class="code"><pre>&#39;dfa1a348-fd67-4cfa-a514-fb4d84b8b3e1&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.url_scheme</td>
+          <td class="code"><pre>&#39;https&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PATH_INFO</td>
+          <td class="code"><pre>u&#39;/facebook_auth&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>REMOTE_ADDR</td>
+          <td class="code"><pre>&#39;10.30.17.197&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CONTENT_LENGTH</td>
+          <td class="code"><pre>&#39;274&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.multiprocess</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SERVER_SOFTWARE</td>
+          <td class="code"><pre>&#39;gunicorn/19.6.0&#39;</pre></td>
         </tr>
       
     </tbody>
@@ -1150,119 +1123,39 @@ Exception Value: global name &#39;sender_id&#39; is not defined
     <tbody>
       
         <tr>
-          <td>LOGIN_URL</td>
-          <td class="code"><pre>&#39;/accounts/login/&#39;</pre></td>
+          <td>MESSAGE_STORAGE</td>
+          <td class="code"><pre>&#39;django.contrib.messages.storage.fallback.FallbackStorage&#39;</pre></td>
         </tr>
       
         <tr>
-          <td>EMAIL_PORT</td>
-          <td class="code"><pre>25</pre></td>
+          <td>FILE_CHARSET</td>
+          <td class="code"><pre>&#39;utf-8&#39;</pre></td>
         </tr>
       
         <tr>
-          <td>LOGGING_CONFIG</td>
-          <td class="code"><pre>&#39;logging.config.dictConfig&#39;</pre></td>
+          <td>LANGUAGE_COOKIE_AGE</td>
+          <td class="code"><pre>None</pre></td>
         </tr>
       
         <tr>
-          <td>COMMENTS_ALLOW_PROFANITIES</td>
-          <td class="code"><pre>False</pre></td>
+          <td>CSRF_COOKIE_DOMAIN</td>
+          <td class="code"><pre>None</pre></td>
         </tr>
       
         <tr>
-          <td>TEMPLATE_CONTEXT_PROCESSORS</td>
-          <td class="code"><pre>(&#39;django.contrib.auth.context_processors.auth&#39;,
- &#39;django.core.context_processors.debug&#39;,
- &#39;django.core.context_processors.i18n&#39;,
- &#39;django.core.context_processors.media&#39;,
- &#39;django.core.context_processors.static&#39;,
- &#39;django.core.context_processors.tz&#39;,
- &#39;django.contrib.messages.context_processors.messages&#39;)</pre></td>
-        </tr>
-      
-        <tr>
-          <td>X_FRAME_OPTIONS</td>
-          <td class="code"><pre>&#39;SAMEORIGIN&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>FIXTURE_DIRS</td>
-          <td class="code"><pre>()</pre></td>
-        </tr>
-      
-        <tr>
-          <td>DEFAULT_CONTENT_TYPE</td>
-          <td class="code"><pre>&#39;text/html&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>EMAIL_BACKEND</td>
-          <td class="code"><pre>&#39;django.core.mail.backends.smtp.EmailBackend&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>ALLOWED_HOSTS</td>
-          <td class="code"><pre>[]</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SESSION_EXPIRE_AT_BROWSER_CLOSE</td>
-          <td class="code"><pre>False</pre></td>
-        </tr>
-      
-        <tr>
-          <td>DATE_FORMAT</td>
-          <td class="code"><pre>&#39;N j, Y&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SESSION_COOKIE_PATH</td>
-          <td class="code"><pre>&#39;/&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>INTERNAL_IPS</td>
-          <td class="code"><pre>()</pre></td>
-        </tr>
-      
-        <tr>
-          <td>DEFAULT_INDEX_TABLESPACE</td>
-          <td class="code"><pre>&#39;&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>FIRST_DAY_OF_WEEK</td>
-          <td class="code"><pre>0</pre></td>
-        </tr>
-      
-        <tr>
-          <td>TEMPLATE_STRING_IF_INVALID</td>
-          <td class="code"><pre>&#39;&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SESSION_COOKIE_HTTPONLY</td>
-          <td class="code"><pre>True</pre></td>
-        </tr>
-      
-        <tr>
-          <td>TEST_NON_SERIALIZED_APPS</td>
-          <td class="code"><pre>[]</pre></td>
-        </tr>
-      
-        <tr>
-          <td>LANGUAGE_COOKIE_NAME</td>
-          <td class="code"><pre>&#39;django_language&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>USE_I18N</td>
-          <td class="code"><pre>True</pre></td>
-        </tr>
-      
-        <tr>
-          <td>DEFAULT_EXCEPTION_REPORTER_FILTER</td>
-          <td class="code"><pre>&#39;django.views.debug.SafeExceptionReporterFilter&#39;</pre></td>
+          <td>DATETIME_INPUT_FORMATS</td>
+          <td class="code"><pre>(&#39;%Y-%m-%d %H:%M:%S&#39;,
+ &#39;%Y-%m-%d %H:%M:%S.%f&#39;,
+ &#39;%Y-%m-%d %H:%M&#39;,
+ &#39;%Y-%m-%d&#39;,
+ &#39;%m/%d/%Y %H:%M:%S&#39;,
+ &#39;%m/%d/%Y %H:%M:%S.%f&#39;,
+ &#39;%m/%d/%Y %H:%M&#39;,
+ &#39;%m/%d/%Y&#39;,
+ &#39;%m/%d/%y %H:%M:%S&#39;,
+ &#39;%m/%d/%y %H:%M:%S.%f&#39;,
+ &#39;%m/%d/%y %H:%M&#39;,
+ &#39;%m/%d/%y&#39;)</pre></td>
         </tr>
       
         <tr>
@@ -1272,78 +1165,13 @@ Exception Value: global name &#39;sender_id&#39; is not defined
         </tr>
       
         <tr>
-          <td>LOGIN_REDIRECT_URL</td>
-          <td class="code"><pre>&#39;/accounts/profile/&#39;</pre></td>
+          <td>SERVER_EMAIL</td>
+          <td class="code"><pre>&#39;root@localhost&#39;</pre></td>
         </tr>
       
         <tr>
-          <td>WSGI_APPLICATION</td>
-          <td class="code"><pre>&#39;hellobot.wsgi.application&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>TEST_RUNNER</td>
-          <td class="code"><pre>&#39;django.test.runner.DiscoverRunner&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>TEMPLATE_DEBUG</td>
+          <td>SESSION_COOKIE_HTTPONLY</td>
           <td class="code"><pre>True</pre></td>
-        </tr>
-      
-        <tr>
-          <td>CSRF_COOKIE_DOMAIN</td>
-          <td class="code"><pre>None</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SILENCED_SYSTEM_CHECKS</td>
-          <td class="code"><pre>[]</pre></td>
-        </tr>
-      
-        <tr>
-          <td>CSRF_COOKIE_NAME</td>
-          <td class="code"><pre>&#39;csrftoken&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>FILE_UPLOAD_TEMP_DIR</td>
-          <td class="code"><pre>None</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SECURE_PROXY_SSL_HEADER</td>
-          <td class="code"><pre>None</pre></td>
-        </tr>
-      
-        <tr>
-          <td>PASSWORD_RESET_TIMEOUT_DAYS</td>
-          <td class="code"><pre>u&#39;********************&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SESSION_ENGINE</td>
-          <td class="code"><pre>&#39;django.contrib.sessions.backends.db&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>CSRF_COOKIE_AGE</td>
-          <td class="code"><pre>31449600</pre></td>
-        </tr>
-      
-        <tr>
-          <td>ADMIN_FOR</td>
-          <td class="code"><pre>()</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SESSION_SERIALIZER</td>
-          <td class="code"><pre>&#39;django.contrib.sessions.serializers.JSONSerializer&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>CSRF_FAILURE_VIEW</td>
-          <td class="code"><pre>&#39;django.views.csrf.csrf_failure&#39;</pre></td>
         </tr>
       
         <tr>
@@ -1352,84 +1180,23 @@ Exception Value: global name &#39;sender_id&#39; is not defined
         </tr>
       
         <tr>
-          <td>SESSION_COOKIE_AGE</td>
-          <td class="code"><pre>1209600</pre></td>
+          <td>CACHES</td>
+          <td class="code"><pre>{&#39;default&#39;: {&#39;BACKEND&#39;: &#39;django.core.cache.backends.locmem.LocMemCache&#39;}}</pre></td>
         </tr>
       
         <tr>
-          <td>MEDIA_ROOT</td>
+          <td>MEDIA_URL</td>
           <td class="code"><pre>&#39;&#39;</pre></td>
         </tr>
       
         <tr>
-          <td>ABSOLUTE_URL_OVERRIDES</td>
-          <td class="code"><pre>{}</pre></td>
+          <td>LOGOUT_URL</td>
+          <td class="code"><pre>&#39;/accounts/logout/&#39;</pre></td>
         </tr>
       
         <tr>
-          <td>SESSION_COOKIE_NAME</td>
-          <td class="code"><pre>&#39;sessionid&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>INSTALLED_APPS</td>
-          <td class="code"><pre>(&#39;django.contrib.admin&#39;,
- &#39;django.contrib.auth&#39;,
- &#39;django.contrib.contenttypes&#39;,
- &#39;django.contrib.sessions&#39;,
- &#39;django.contrib.messages&#39;,
- &#39;django.contrib.staticfiles&#39;,
- &#39;chatbot&#39;)</pre></td>
-        </tr>
-      
-        <tr>
-          <td>MESSAGE_STORAGE</td>
-          <td class="code"><pre>&#39;django.contrib.messages.storage.fallback.FallbackStorage&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>STATIC_URL</td>
-          <td class="code"><pre>&#39;/static/&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>PROFANITIES_LIST</td>
-          <td class="code"><pre>u&#39;********************&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>EMAIL_USE_TLS</td>
-          <td class="code"><pre>False</pre></td>
-        </tr>
-      
-        <tr>
-          <td>EMAIL_HOST_USER</td>
-          <td class="code"><pre>&#39;&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SIGNING_BACKEND</td>
-          <td class="code"><pre>&#39;django.core.signing.TimestampSigner&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SETTINGS_MODULE</td>
-          <td class="code"><pre>&#39;hellobot.settings&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>LANGUAGE_COOKIE_AGE</td>
-          <td class="code"><pre>None</pre></td>
-        </tr>
-      
-        <tr>
-          <td>TIME_ZONE</td>
-          <td class="code"><pre>&#39;UTC&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>FILE_UPLOAD_MAX_MEMORY_SIZE</td>
-          <td class="code"><pre>2621440</pre></td>
+          <td>BASE_DIR</td>
+          <td class="code"><pre>&#39;/app&#39;</pre></td>
         </tr>
       
         <tr>
@@ -1438,49 +1205,8 @@ Exception Value: global name &#39;sender_id&#39; is not defined
         </tr>
       
         <tr>
-          <td>LANGUAGES_BIDI</td>
-          <td class="code"><pre>(&#39;he&#39;, &#39;ar&#39;, &#39;fa&#39;, &#39;ur&#39;)</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SHORT_DATE_FORMAT</td>
-          <td class="code"><pre>&#39;m/d/Y&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>FILE_UPLOAD_HANDLERS</td>
-          <td class="code"><pre>(&#39;django.core.files.uploadhandler.MemoryFileUploadHandler&#39;,
- &#39;django.core.files.uploadhandler.TemporaryFileUploadHandler&#39;)</pre></td>
-        </tr>
-      
-        <tr>
-          <td>TIME_INPUT_FORMATS</td>
-          <td class="code"><pre>(&#39;%H:%M:%S&#39;, &#39;%H:%M:%S.%f&#39;, &#39;%H:%M&#39;)</pre></td>
-        </tr>
-      
-        <tr>
-          <td>PASSWORD_HASHERS</td>
-          <td class="code"><pre>u&#39;********************&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>DISALLOWED_USER_AGENTS</td>
-          <td class="code"><pre>()</pre></td>
-        </tr>
-      
-        <tr>
-          <td>IGNORABLE_404_URLS</td>
-          <td class="code"><pre>()</pre></td>
-        </tr>
-      
-        <tr>
-          <td>ADMINS</td>
-          <td class="code"><pre>()</pre></td>
-        </tr>
-      
-        <tr>
-          <td>LANGUAGE_COOKIE_DOMAIN</td>
-          <td class="code"><pre>None</pre></td>
+          <td>SESSION_EXPIRE_AT_BROWSER_CLOSE</td>
+          <td class="code"><pre>False</pre></td>
         </tr>
       
         <tr>
@@ -1489,93 +1215,13 @@ Exception Value: global name &#39;sender_id&#39; is not defined
         </tr>
       
         <tr>
-          <td>USE_L10N</td>
+          <td>TEMPLATE_DEBUG</td>
           <td class="code"><pre>True</pre></td>
         </tr>
       
         <tr>
-          <td>LANGUAGE_COOKIE_PATH</td>
-          <td class="code"><pre>&#39;/&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>FILE_UPLOAD_DIRECTORY_PERMISSIONS</td>
-          <td class="code"><pre>None</pre></td>
-        </tr>
-      
-        <tr>
-          <td>DEFAULT_FROM_EMAIL</td>
-          <td class="code"><pre>&#39;webmaster@localhost&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>ROOT_URLCONF</td>
-          <td class="code"><pre>&#39;hellobot.urls&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>DEFAULT_FILE_STORAGE</td>
-          <td class="code"><pre>&#39;django.core.files.storage.FileSystemStorage&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>AUTHENTICATION_BACKENDS</td>
-          <td class="code"><pre>(&#39;django.contrib.auth.backends.ModelBackend&#39;,)</pre></td>
-        </tr>
-      
-        <tr>
-          <td>DEBUG_PROPAGATE_EXCEPTIONS</td>
-          <td class="code"><pre>False</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SESSION_CACHE_ALIAS</td>
-          <td class="code"><pre>&#39;default&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>MANAGERS</td>
-          <td class="code"><pre>()</pre></td>
-        </tr>
-      
-        <tr>
-          <td>DEFAULT_TABLESPACE</td>
-          <td class="code"><pre>&#39;&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>USE_ETAGS</td>
-          <td class="code"><pre>False</pre></td>
-        </tr>
-      
-        <tr>
-          <td>FILE_UPLOAD_PERMISSIONS</td>
-          <td class="code"><pre>None</pre></td>
-        </tr>
-      
-        <tr>
-          <td>CACHE_MIDDLEWARE_ALIAS</td>
-          <td class="code"><pre>&#39;default&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>STATIC_ROOT</td>
-          <td class="code"><pre>None</pre></td>
-        </tr>
-      
-        <tr>
-          <td>LOCALE_PATHS</td>
-          <td class="code"><pre>()</pre></td>
-        </tr>
-      
-        <tr>
-          <td>NUMBER_GROUPING</td>
-          <td class="code"><pre>0</pre></td>
-        </tr>
-      
-        <tr>
-          <td>EMAIL_SUBJECT_PREFIX</td>
-          <td class="code"><pre>&#39;[Django] &#39;</pre></td>
+          <td>TEST_NON_SERIALIZED_APPS</td>
+          <td class="code"><pre>[]</pre></td>
         </tr>
       
         <tr>
@@ -1584,43 +1230,44 @@ Exception Value: global name &#39;sender_id&#39; is not defined
         </tr>
       
         <tr>
+          <td>PASSWORD_RESET_TIMEOUT_DAYS</td>
+          <td class="code"><pre>u&#39;********************&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USE_THOUSAND_SEPARATOR</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PROFANITIES_LIST</td>
+          <td class="code"><pre>u&#39;********************&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SILENCED_SYSTEM_CHECKS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+      
+        <tr>
           <td>CACHE_MIDDLEWARE_KEY_PREFIX</td>
           <td class="code"><pre>u&#39;********************&#39;</pre></td>
         </tr>
       
         <tr>
-          <td>YEAR_MONTH_FORMAT</td>
-          <td class="code"><pre>&#39;F Y&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>FORMAT_MODULE_PATH</td>
-          <td class="code"><pre>None</pre></td>
-        </tr>
-      
-        <tr>
-          <td>TEMPLATE_DIRS</td>
+          <td>ALLOWED_INCLUDE_ROOTS</td>
           <td class="code"><pre>()</pre></td>
         </tr>
       
         <tr>
-          <td>AUTH_USER_MODEL</td>
-          <td class="code"><pre>&#39;auth.User&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>USE_X_FORWARDED_HOST</td>
+          <td>SEND_BROKEN_LINK_EMAILS</td>
           <td class="code"><pre>False</pre></td>
         </tr>
       
         <tr>
-          <td>USE_TZ</td>
-          <td class="code"><pre>True</pre></td>
-        </tr>
-      
-        <tr>
-          <td>PREPEND_WWW</td>
-          <td class="code"><pre>False</pre></td>
+          <td>FILE_UPLOAD_HANDLERS</td>
+          <td class="code"><pre>(&#39;django.core.files.uploadhandler.MemoryFileUploadHandler&#39;,
+ &#39;django.core.files.uploadhandler.TemporaryFileUploadHandler&#39;)</pre></td>
         </tr>
       
         <tr>
@@ -1714,83 +1361,100 @@ Exception Value: global name &#39;sender_id&#39; is not defined
         </tr>
       
         <tr>
+          <td>SESSION_SAVE_EVERY_REQUEST</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_CACHE_ALIAS</td>
+          <td class="code"><pre>&#39;default&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TIME_ZONE</td>
+          <td class="code"><pre>&#39;UTC&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEMPLATE_LOADERS</td>
+          <td class="code"><pre>(&#39;django.template.loaders.filesystem.Loader&#39;,
+ &#39;django.template.loaders.app_directories.Loader&#39;)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEBUG</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>STATICFILES_DIRS</td>
+          <td class="code"><pre>()</pre></td>
+        </tr>
+      
+        <tr>
+          <td>NUMBER_GROUPING</td>
+          <td class="code"><pre>0</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FILE_UPLOAD_TEMP_DIR</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USE_I18N</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_SUBJECT_PREFIX</td>
+          <td class="code"><pre>&#39;[Django] &#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEMPLATE_CONTEXT_PROCESSORS</td>
+          <td class="code"><pre>(&#39;django.contrib.auth.context_processors.auth&#39;,
+ &#39;django.core.context_processors.debug&#39;,
+ &#39;django.core.context_processors.i18n&#39;,
+ &#39;django.core.context_processors.media&#39;,
+ &#39;django.core.context_processors.static&#39;,
+ &#39;django.core.context_processors.tz&#39;,
+ &#39;django.contrib.messages.context_processors.messages&#39;)</pre></td>
+        </tr>
+      
+        <tr>
           <td>TRANSACTIONS_MANAGED</td>
           <td class="code"><pre>False</pre></td>
         </tr>
       
         <tr>
-          <td>CACHES</td>
-          <td class="code"><pre>{&#39;default&#39;: {&#39;BACKEND&#39;: &#39;django.core.cache.backends.locmem.LocMemCache&#39;}}</pre></td>
+          <td>STATIC_ROOT</td>
+          <td class="code"><pre>None</pre></td>
         </tr>
       
         <tr>
-          <td>DATABASE_ROUTERS</td>
-          <td class="code"><pre>[]</pre></td>
+          <td>LOGIN_URL</td>
+          <td class="code"><pre>&#39;/accounts/login/&#39;</pre></td>
         </tr>
       
         <tr>
-          <td>LANGUAGE_CODE</td>
-          <td class="code"><pre>&#39;en-us&#39;</pre></td>
+          <td>DEFAULT_TABLESPACE</td>
+          <td class="code"><pre>&#39;&#39;</pre></td>
         </tr>
       
         <tr>
-          <td>MONTH_DAY_FORMAT</td>
-          <td class="code"><pre>&#39;F j&#39;</pre></td>
+          <td>X_FRAME_OPTIONS</td>
+          <td class="code"><pre>&#39;SAMEORIGIN&#39;</pre></td>
         </tr>
       
         <tr>
-          <td>DATE_INPUT_FORMATS</td>
-          <td class="code"><pre>(&#39;%Y-%m-%d&#39;,
- &#39;%m/%d/%Y&#39;,
- &#39;%m/%d/%y&#39;,
- &#39;%b %d %Y&#39;,
- &#39;%b %d, %Y&#39;,
- &#39;%d %b %Y&#39;,
- &#39;%d %b, %Y&#39;,
- &#39;%B %d %Y&#39;,
- &#39;%B %d, %Y&#39;,
- &#39;%d %B %Y&#39;,
- &#39;%d %B, %Y&#39;)</pre></td>
+          <td>LANGUAGES_BIDI</td>
+          <td class="code"><pre>(&#39;he&#39;, &#39;ar&#39;, &#39;fa&#39;, &#39;ur&#39;)</pre></td>
         </tr>
       
         <tr>
-          <td>CSRF_COOKIE_SECURE</td>
-          <td class="code"><pre>False</pre></td>
-        </tr>
-      
-        <tr>
-          <td>ALLOWED_INCLUDE_ROOTS</td>
-          <td class="code"><pre>()</pre></td>
-        </tr>
-      
-        <tr>
-          <td>LOGGING</td>
-          <td class="code"><pre>{}</pre></td>
-        </tr>
-      
-        <tr>
-          <td>LOGOUT_URL</td>
-          <td class="code"><pre>&#39;/accounts/logout/&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>BASE_DIR</td>
-          <td class="code"><pre>&#39;/app&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SEND_BROKEN_LINK_EMAILS</td>
-          <td class="code"><pre>False</pre></td>
-        </tr>
-      
-        <tr>
-          <td>DEFAULT_CHARSET</td>
-          <td class="code"><pre>&#39;utf-8&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>STATICFILES_STORAGE</td>
-          <td class="code"><pre>&#39;django.contrib.staticfiles.storage.StaticFilesStorage&#39;</pre></td>
+          <td>LOGGING_CONFIG</td>
+          <td class="code"><pre>&#39;logging.config.dictConfig&#39;</pre></td>
         </tr>
       
         <tr>
@@ -1813,18 +1477,18 @@ Exception Value: global name &#39;sender_id&#39; is not defined
         </tr>
       
         <tr>
-          <td>TIME_FORMAT</td>
-          <td class="code"><pre>&#39;P&#39;</pre></td>
+          <td>EMAIL_PORT</td>
+          <td class="code"><pre>25</pre></td>
         </tr>
       
         <tr>
-          <td>SESSION_FILE_PATH</td>
-          <td class="code"><pre>None</pre></td>
+          <td>TEMPLATE_STRING_IF_INVALID</td>
+          <td class="code"><pre>&#39;&#39;</pre></td>
         </tr>
       
         <tr>
-          <td>THOUSAND_SEPARATOR</td>
-          <td class="code"><pre>&#39;,&#39;</pre></td>
+          <td>MEDIA_ROOT</td>
+          <td class="code"><pre>&#39;&#39;</pre></td>
         </tr>
       
         <tr>
@@ -1833,43 +1497,369 @@ Exception Value: global name &#39;sender_id&#39; is not defined
         </tr>
       
         <tr>
-          <td>SESSION_COOKIE_SECURE</td>
+          <td>DEFAULT_FROM_EMAIL</td>
+          <td class="code"><pre>&#39;webmaster@localhost&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FORMAT_MODULE_PATH</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USE_ETAGS</td>
           <td class="code"><pre>False</pre></td>
         </tr>
       
         <tr>
-          <td>SESSION_SAVE_EVERY_REQUEST</td>
-          <td class="code"><pre>False</pre></td>
+          <td>INTERNAL_IPS</td>
+          <td class="code"><pre>()</pre></td>
         </tr>
       
         <tr>
-          <td>DECIMAL_SEPARATOR</td>
-          <td class="code"><pre>&#39;.&#39;</pre></td>
+          <td>EMAIL_HOST_PASSWORD</td>
+          <td class="code"><pre>u&#39;********************&#39;</pre></td>
         </tr>
       
         <tr>
-          <td>SERVER_EMAIL</td>
-          <td class="code"><pre>&#39;root@localhost&#39;</pre></td>
+          <td>PASSWORD_HASHERS</td>
+          <td class="code"><pre>u&#39;********************&#39;</pre></td>
         </tr>
       
         <tr>
-          <td>MEDIA_URL</td>
-          <td class="code"><pre>&#39;&#39;</pre></td>
+          <td>LOCALE_PATHS</td>
+          <td class="code"><pre>()</pre></td>
         </tr>
       
         <tr>
-          <td>DEBUG</td>
+          <td>LANGUAGE_CODE</td>
+          <td class="code"><pre>&#39;en-us&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANGUAGE_COOKIE_DOMAIN</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>IGNORABLE_404_URLS</td>
+          <td class="code"><pre>()</pre></td>
+        </tr>
+      
+        <tr>
+          <td>WSGI_APPLICATION</td>
+          <td class="code"><pre>&#39;hellobot.wsgi.application&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>STATICFILES_STORAGE</td>
+          <td class="code"><pre>&#39;django.contrib.staticfiles.storage.StaticFilesStorage&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ROOT_URLCONF</td>
+          <td class="code"><pre>&#39;hellobot.urls&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LOGGING</td>
+          <td class="code"><pre>{}</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USE_L10N</td>
           <td class="code"><pre>True</pre></td>
         </tr>
       
         <tr>
-          <td>STATICFILES_DIRS</td>
+          <td>DATE_INPUT_FORMATS</td>
+          <td class="code"><pre>(&#39;%Y-%m-%d&#39;,
+ &#39;%m/%d/%Y&#39;,
+ &#39;%m/%d/%y&#39;,
+ &#39;%b %d %Y&#39;,
+ &#39;%b %d, %Y&#39;,
+ &#39;%d %b %Y&#39;,
+ &#39;%d %b, %Y&#39;,
+ &#39;%B %d %Y&#39;,
+ &#39;%B %d, %Y&#39;,
+ &#39;%d %B %Y&#39;,
+ &#39;%d %B, %Y&#39;)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ADMIN_FOR</td>
           <td class="code"><pre>()</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_USE_TLS</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_COOKIE_NAME</td>
+          <td class="code"><pre>&#39;sessionid&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FILE_UPLOAD_PERMISSIONS</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_SERIALIZER</td>
+          <td class="code"><pre>&#39;django.contrib.sessions.serializers.JSONSerializer&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FILE_UPLOAD_DIRECTORY_PERMISSIONS</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_ENGINE</td>
+          <td class="code"><pre>&#39;django.contrib.sessions.backends.db&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ALLOWED_HOSTS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FIXTURE_DIRS</td>
+          <td class="code"><pre>()</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_COOKIE_NAME</td>
+          <td class="code"><pre>&#39;csrftoken&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PREPEND_WWW</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECURE_PROXY_SSL_HEADER</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MANAGERS</td>
+          <td class="code"><pre>()</pre></td>
+        </tr>
+      
+        <tr>
+          <td>AUTHENTICATION_BACKENDS</td>
+          <td class="code"><pre>(&#39;django.contrib.auth.backends.ModelBackend&#39;,)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_BACKEND</td>
+          <td class="code"><pre>&#39;django.core.mail.backends.smtp.EmailBackend&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>COMMENTS_ALLOW_PROFANITIES</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANGUAGE_COOKIE_NAME</td>
+          <td class="code"><pre>&#39;django_language&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_EXCEPTION_REPORTER_FILTER</td>
+          <td class="code"><pre>&#39;django.views.debug.SafeExceptionReporterFilter&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATETIME_FORMAT</td>
+          <td class="code"><pre>&#39;N j, Y, P&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LOGIN_REDIRECT_URL</td>
+          <td class="code"><pre>&#39;/accounts/profile/&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TIME_INPUT_FORMATS</td>
+          <td class="code"><pre>(&#39;%H:%M:%S&#39;, &#39;%H:%M:%S.%f&#39;, &#39;%H:%M&#39;)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEST_RUNNER</td>
+          <td class="code"><pre>&#39;django.test.runner.DiscoverRunner&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_HOST_USER</td>
+          <td class="code"><pre>&#39;&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FILE_UPLOAD_MAX_MEMORY_SIZE</td>
+          <td class="code"><pre>2621440</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DISALLOWED_USER_AGENTS</td>
+          <td class="code"><pre>()</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_FILE_STORAGE</td>
+          <td class="code"><pre>&#39;django.core.files.storage.FileSystemStorage&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_COOKIE_PATH</td>
+          <td class="code"><pre>&#39;/&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>APPEND_SLASH</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_FAILURE_VIEW</td>
+          <td class="code"><pre>&#39;django.views.csrf.csrf_failure&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>INSTALLED_APPS</td>
+          <td class="code"><pre>(&#39;django.contrib.admin&#39;,
+ &#39;django.contrib.auth&#39;,
+ &#39;django.contrib.contenttypes&#39;,
+ &#39;django.contrib.sessions&#39;,
+ &#39;django.contrib.messages&#39;,
+ &#39;django.contrib.staticfiles&#39;,
+ &#39;chatbot&#39;)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FORCE_SCRIPT_NAME</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEMPLATE_DIRS</td>
+          <td class="code"><pre>()</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_CHARSET</td>
+          <td class="code"><pre>&#39;utf-8&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEBUG_PROPAGATE_EXCEPTIONS</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>AUTH_USER_MODEL</td>
+          <td class="code"><pre>&#39;auth.User&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>YEAR_MONTH_FORMAT</td>
+          <td class="code"><pre>&#39;F Y&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SETTINGS_MODULE</td>
+          <td class="code"><pre>&#39;hellobot.settings&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_CONTENT_TYPE</td>
+          <td class="code"><pre>&#39;text/html&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_COOKIE_SECURE</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TIME_FORMAT</td>
+          <td class="code"><pre>&#39;P&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECRET_KEY</td>
+          <td class="code"><pre>u&#39;********************&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_COOKIE_AGE</td>
+          <td class="code"><pre>1209600</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_FILE_PATH</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CACHE_MIDDLEWARE_ALIAS</td>
+          <td class="code"><pre>&#39;default&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_COOKIE_AGE</td>
+          <td class="code"><pre>31449600</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SHORT_DATE_FORMAT</td>
+          <td class="code"><pre>&#39;m/d/Y&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USE_TZ</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ABSOLUTE_URL_OVERRIDES</td>
+          <td class="code"><pre>{}</pre></td>
         </tr>
       
         <tr>
           <td>CSRF_COOKIE_HTTPONLY</td>
           <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ADMINS</td>
+          <td class="code"><pre>()</pre></td>
+        </tr>
+      
+        <tr>
+          <td>THOUSAND_SEPARATOR</td>
+          <td class="code"><pre>&#39;,&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FIRST_DAY_OF_WEEK</td>
+          <td class="code"><pre>0</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATE_FORMAT</td>
+          <td class="code"><pre>&#39;N j, Y&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_COOKIE_PATH</td>
+          <td class="code"><pre>&#39;/&#39;</pre></td>
         </tr>
       
         <tr>
@@ -1889,65 +1879,48 @@ Exception Value: global name &#39;sender_id&#39; is not defined
         </tr>
       
         <tr>
-          <td>CSRF_COOKIE_PATH</td>
-          <td class="code"><pre>&#39;/&#39;</pre></td>
+          <td>STATIC_URL</td>
+          <td class="code"><pre>&#39;/static/&#39;</pre></td>
         </tr>
       
         <tr>
-          <td>SECRET_KEY</td>
-          <td class="code"><pre>u&#39;********************&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>DATETIME_INPUT_FORMATS</td>
-          <td class="code"><pre>(&#39;%Y-%m-%d %H:%M:%S&#39;,
- &#39;%Y-%m-%d %H:%M:%S.%f&#39;,
- &#39;%Y-%m-%d %H:%M&#39;,
- &#39;%Y-%m-%d&#39;,
- &#39;%m/%d/%Y %H:%M:%S&#39;,
- &#39;%m/%d/%Y %H:%M:%S.%f&#39;,
- &#39;%m/%d/%Y %H:%M&#39;,
- &#39;%m/%d/%Y&#39;,
- &#39;%m/%d/%y %H:%M:%S&#39;,
- &#39;%m/%d/%y %H:%M:%S.%f&#39;,
- &#39;%m/%d/%y %H:%M&#39;,
- &#39;%m/%d/%y&#39;)</pre></td>
-        </tr>
-      
-        <tr>
-          <td>TEMPLATE_LOADERS</td>
-          <td class="code"><pre>(&#39;django.template.loaders.filesystem.Loader&#39;,
- &#39;django.template.loaders.app_directories.Loader&#39;)</pre></td>
-        </tr>
-      
-        <tr>
-          <td>EMAIL_HOST_PASSWORD</td>
-          <td class="code"><pre>u&#39;********************&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>USE_THOUSAND_SEPARATOR</td>
+          <td>SESSION_COOKIE_SECURE</td>
           <td class="code"><pre>False</pre></td>
         </tr>
       
         <tr>
-          <td>DATETIME_FORMAT</td>
-          <td class="code"><pre>&#39;N j, Y, P&#39;</pre></td>
+          <td>SIGNING_BACKEND</td>
+          <td class="code"><pre>&#39;django.core.signing.TimestampSigner&#39;</pre></td>
         </tr>
       
         <tr>
-          <td>FILE_CHARSET</td>
-          <td class="code"><pre>&#39;utf-8&#39;</pre></td>
+          <td>DEFAULT_INDEX_TABLESPACE</td>
+          <td class="code"><pre>&#39;&#39;</pre></td>
         </tr>
       
         <tr>
-          <td>FORCE_SCRIPT_NAME</td>
-          <td class="code"><pre>None</pre></td>
+          <td>MONTH_DAY_FORMAT</td>
+          <td class="code"><pre>&#39;F j&#39;</pre></td>
         </tr>
       
         <tr>
-          <td>APPEND_SLASH</td>
-          <td class="code"><pre>True</pre></td>
+          <td>DECIMAL_SEPARATOR</td>
+          <td class="code"><pre>&#39;.&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USE_X_FORWARDED_HOST</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANGUAGE_COOKIE_PATH</td>
+          <td class="code"><pre>&#39;/&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATABASE_ROUTERS</td>
+          <td class="code"><pre>[]</pre></td>
         </tr>
       
     </tbody>
