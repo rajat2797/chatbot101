@@ -17,13 +17,13 @@ PAGE_ACCESS_TOKEN='EAAJmjf94eZB8BAEJHwLBtA5RxiIR6WUhra7TiXXIZBHrFtV7ZCyUFGuPOpG2
 
 def post_facebook_message(fbid,message_text):
 	post_message_url = 'https://graph.facebook.com/v2.6/me/messages?access_token=%s'%PAGE_ACCESS_TOKEN
-	key=message_text
+	result_arr=[]
 	for k,v in pokemon_data.iteritems():
 		if message_text.lower() in k.lower():
-			message_text=k
-			break
-	message_text=pokemon_data[message_text]
-	response_msg = json.dumps({"recipient":{"id":fbid}, "message":{"text":message_text
+			result_arr.append(v)
+
+	#message_text=pokemon_data[message_text]
+	response_msg = json.dumps({"recipient":{"id":fbid}, "message":{"text": result_arr
   		}})
 		#{"attachment":{'type'='image',"payload":{
         #"url":message_text
