@@ -49,8 +49,8 @@ def post_facebook_message(fbid,message_text):
 		output_text+=i[1]
 		output_text+='\n'
 
-	response_msg = json.dumps({"recipient":{"id":fbid}, "message":{"text": output_text
-  		}})
+	response_msg = json.dumps({"recipient":{"id":fbid}, "message":{"attachment":{"type":"image","payload":{"url":"https://petersapparel.com/img/shirt.png"}}}})
+		#"message":{"text": output_text}})
 		#{"attachment":{'type'='image',"payload":{
         #"url":message_text
       	#}}}
