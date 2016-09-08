@@ -22,8 +22,10 @@ def post_facebook_message(fbid,message_text):
 		if message_text.lower() in k.lower():
 			result_arr.append(v)
 
-	#message_text=pokemon_data[message_text]
-	response_msg = json.dumps({"recipient":{"id":fbid}, "message":{"text": result_arr[0]
+	output_text=''
+	for i in result_arr:
+		output_text+=i
+	response_msg = json.dumps({"recipient":{"id":fbid}, "message":{"text": output_text
   		}})
 		#{"attachment":{'type'='image',"payload":{
         #"url":message_text
