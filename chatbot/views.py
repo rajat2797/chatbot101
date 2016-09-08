@@ -49,6 +49,8 @@ def post_facebook_message(fbid,message_text):
 		output_text+=i[1]
 		output_text+='\n'
 
+	if output_text=='':
+		output_text='Kindly type a pokemon name'
 	response_msg = json.dumps({"recipient":{"id":fbid}, "message":{"text": output_text}})
 		# {"attachment":{"type":"image","payload":{"url":"https://petersapparel.com/img/shirt.png"}}}})
 		
