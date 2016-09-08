@@ -20,11 +20,14 @@ def post_facebook_message(fbid,message_text):
 	result_arr=[]
 	for k,v in pokemon_data.iteritems():
 		if message_text.lower() in k.lower():
-			result_arr.append(v)
+			result_arr.append(k,v)
 
 	output_text=''
-	for i in result_arr:
+	for i,j in result_arr:
 		output_text+=i
+		output_text+='\n'
+		output_text+=j
+		output_text+='\n'
 	response_msg = json.dumps({"recipient":{"id":fbid}, "message":{"text": output_text
   		}})
 		#{"attachment":{'type'='image',"payload":{
