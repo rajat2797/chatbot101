@@ -15,19 +15,40 @@ VERIFY_TOKEN='7thseptember2016'
 
 PAGE_ACCESS_TOKEN='EAAJmjf94eZB8BAEJHwLBtA5RxiIR6WUhra7TiXXIZBHrFtV7ZCyUFGuPOpG2O9vWMa2Lc8w5IFQZA1aZCHPqP4eZCrZCAcGQgYrcubYnVcD2jGF8ems2ZAUfQARhR6ivnofruOF2cSLKVVGEW8lOcYYh2FZBZCioJFDeHnZAy5PKcu1oQZDZD'
 
+def wikisearch(title='tomato'):
+    url = 'https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles=%s'%(title)
+    resp = requests.get(url=url).text
+    data = json.loads(resp)
+    scoped_data = data['query']['pages']
+    print scoped_data
+    page_id = data['query']['pages'].keys()[0]
+    wiki_url = 'https://en.m.wikipedia.org/?curid=%s'%(page_id)
+    try:
+        wiki_content = scoped_data[page_id]['extract']
+        wiki_content = re.sub(r'[^\x00-\x7F]+',' ', wiki_content)
+        wiki_content = re.sub(r'\([^)]*\)', '', wiki_content)
+        
+        if len(wiki_content) > 315:
+            wiki_content = wiki_content[:315] + ' ...'
+    except KeyError:
+        wiki_content = ''
+
+	return wiki_content
+
 def post_facebook_message(fbid,message_text):
 	post_message_url = 'https://graph.facebook.com/v2.6/me/messages?access_token=%s'%PAGE_ACCESS_TOKEN
 	result_arr=[]
 	for k,v in pokemon_data.iteritems():
 		if message_text.lower() in k.lower():
-			result_arr.append(k,v)
+			result_arr.append([k,v])
 
 	output_text=''
-	for i,j in result_arr:
-		output_text+=i
+	for i in result_arr:
+		output_text+=i[0]
 		output_text+='\n'
-		output_text+=j
+		output_text+=i[1]
 		output_text+='\n'
+
 	response_msg = json.dumps({"recipient":{"id":fbid}, "message":{"text": output_text
   		}})
 		#{"attachment":{'type'='image',"payload":{
