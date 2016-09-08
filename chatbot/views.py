@@ -23,7 +23,7 @@ def post_facebook_message(fbid,message_text):
 			result_arr.append(v)
 
 	#message_text=pokemon_data[message_text]
-	response_msg = json.dumps({"recipient":{"id":fbid}, "message":{"text": result_arr
+	response_msg = json.dumps({"recipient":{"id":fbid}, "message":{"text": result_arr[0]
   		}})
 		#{"attachment":{'type'='image',"payload":{
         #"url":message_text
