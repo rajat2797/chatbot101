@@ -16,6 +16,21 @@ VERIFY_TOKEN='7thseptember2016'
 
 PAGE_ACCESS_TOKEN='EAAJmjf94eZB8BAEJHwLBtA5RxiIR6WUhra7TiXXIZBHrFtV7ZCyUFGuPOpG2O9vWMa2Lc8w5IFQZA1aZCHPqP4eZCrZCAcGQgYrcubYnVcD2jGF8ems2ZAUfQARhR6ivnofruOF2cSLKVVGEW8lOcYYh2FZBZCioJFDeHnZAy5PKcu1oQZDZD'
 
+def movies(fbid,title):
+	url='http://www.omdbapi.com/?t=%s'%(title)
+	resp = requests.get(url=url).text
+	data = json.loads(resp)
+	t=data['Title']
+	y=data['Year']
+	r=data['imdbRating']
+	g=data['Genre']
+	p=data['Plot']
+	a=data['Actors']
+	output_text='Title : %s\nYear : %s\nIMDB-Rating : %s\nGenre : %s\nActors : %s\nPlot : %s'%(t,y,r,g,a,p)
+	post_message_url = 'https://graph.facebook.com/v2.6/me/messages?access_token=%s'%PAGE_ACCESS_TOKEN
+	response_msg = json.dumps({"recipient":{"id":fbid}, "message":{"text": output_text}})
+	status = requests.post(post_message_url, headers={"Content-Type": "application/json"},data=response_msg)
+
 def wikisearch(fbid,title='tomato'):
     url = 'https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles=%s'%(title)
     resp = requests.get(url=url).text
@@ -41,7 +56,7 @@ def wikisearch(fbid,title='tomato'):
 
 def intro(fbid,message_text):
 	post_message_url = 'https://graph.facebook.com/v2.6/me/messages?access_token=%s'%PAGE_ACCESS_TOKEN
-	output_text="Hi there! I'm a ChatBot\nType :\n#wiki (word) - For Wikipedia Search\n#Pokemon (pokemon name) - For Pokemon Search"
+	output_text="Hi there! I'm a ChatBot\nType :\n#wiki (word) - For Wikipedia Search\n#Pokemon (pokemon name) - For Pokemon Search\n#movie (Movie Name) - For Movie details,rating etc.."
 	response_msg = json.dumps({"recipient":{"id":fbid}, "message":{"text": output_text}})
 	status = requests.post(post_message_url, headers={"Content-Type": "application/json"},data=response_msg)
 	print status.json()
@@ -95,6 +110,9 @@ class MyChatBotView(generic.View):
 					elif '#wiki' in message_text.lower():
 						message_text = message_text.split(" ",1)
 						wikisearch(sender_id,message_text[1].replace(' ',''))
+					elif '#movie' in message_text.lower():
+						message_text = message_text.split(" ",1)
+						movie(sender_id,message_text[1])
 				except Exception as e:
 					print e
 					pass
