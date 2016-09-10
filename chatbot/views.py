@@ -16,6 +16,11 @@ VERIFY_TOKEN='7thseptember2016'
 
 PAGE_ACCESS_TOKEN='EAAJmjf94eZB8BAEJHwLBtA5RxiIR6WUhra7TiXXIZBHrFtV7ZCyUFGuPOpG2O9vWMa2Lc8w5IFQZA1aZCHPqP4eZCrZCAcGQgYrcubYnVcD2jGF8ems2ZAUfQARhR6ivnofruOF2cSLKVVGEW8lOcYYh2FZBZCioJFDeHnZAy5PKcu1oQZDZD'
 
+def post_img(fbid, data):
+    post_message_url = 'https://graph.facebook.com/v2.6/me/messages?access_token=%s'% access_token
+    response_msg = json.dumps({"recipient":{"id":fbid}, "message":{"attachment":{"type":"image","payload":{"url":data}}}})
+    status = requests.post(post_message_url, headers={"Content-Type": "application/json"},data=response_msg)
+
 def movies(fbid,title):
 	url='http://www.omdbapi.com/?t=%s&y=&plot=short&r=json'%(title)
 	resp = requests.get(url=url).text
@@ -63,7 +68,7 @@ def intro(fbid,message_text):
 	status = requests.post(post_message_url, headers={"Content-Type": "application/json"},data=response_msg)
 	print status.json()
 
-def post_facebook_message(fbid,message_text):
+def pokemon(fbid,message_text):
 	post_message_url = 'https://graph.facebook.com/v2.6/me/messages?access_token=%s'%PAGE_ACCESS_TOKEN
 	result_arr=[]
 	for k,v in pokemon_data.iteritems():
@@ -104,17 +109,18 @@ class MyChatBotView(generic.View):
 				try:
 					sender_id = message['sender']['id']
 					message_text = message['message']['text']
-					if message_text.lower()=='hi' or message_text.lower()=='hello':
-						intro(sender_id,message_text)
-					elif '#pokemon' in message_text.lower():
-						message_text = message_text.split(" ")
-						post_facebook_message(sender_id,message_text[1])
-					elif '#wiki' in message_text.lower():
-						message_text = message_text.split(" ",1)
-						wikisearch(sender_id,message_text[1].replace(' ',''))
-					elif '#movie' in message_text.lower():
-						message_text = message_text.split(" ",1)
-						movies(sender_id,message_text[1].replace(' ','+').lower())
+					post_img(sender_id,'http://img.pokemondb.net/artwork/bulbasaur.jpg')
+					# if message_text.lower()=='hi' or message_text.lower()=='hello':
+					# 	intro(sender_id,message_text)
+					# elif '#pokemon' in message_text.lower():
+					# 	message_text = message_text.split(" ")
+					# 	pokemon(sender_id,message_text[1])
+					# elif '#wiki' in message_text.lower():
+					# 	message_text = message_text.split(" ",1)
+					# 	wikisearch(sender_id,message_text[1].replace(' ',''))
+					# elif '#movie' in message_text.lower():
+					# 	message_text = message_text.split(" ",1)
+					# 	movies(sender_id,message_text[1].replace(' ','+').lower())
 				except Exception as e:
 					print e
 					pass
