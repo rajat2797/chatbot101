@@ -16,6 +16,11 @@ VERIFY_TOKEN='7thseptember2016'
 
 PAGE_ACCESS_TOKEN='EAAJmjf94eZB8BAEJHwLBtA5RxiIR6WUhra7TiXXIZBHrFtV7ZCyUFGuPOpG2O9vWMa2Lc8w5IFQZA1aZCHPqP4eZCrZCAcGQgYrcubYnVcD2jGF8ems2ZAUfQARhR6ivnofruOF2cSLKVVGEW8lOcYYh2FZBZCioJFDeHnZAy5PKcu1oQZDZD'
 
+weather_api='b82cf7a4b0f1881c7a0513246b4adb28'
+
+def weather(fbid,city):
+	url='http://api.openweathermap.org/data/2.5/weather?q=%s&APPID=%s'%(city,weather_api)
+
 def youtube_search(fbid,message_text):
 	post_message_url = 'https://graph.facebook.com/v2.6/me/messages?access_token=%s'%PAGE_ACCESS_TOKEN
 	output_text='https://www.youtube.com/results?search_query=%s'%(message_text)
@@ -73,7 +78,7 @@ def wikisearch(fbid,title='tomato'):
 
 def intro(fbid,message_text):
 	post_message_url = 'https://graph.facebook.com/v2.6/me/messages?access_token=%s'%PAGE_ACCESS_TOKEN
-	output_text="Hi there! I'm a ChatBot\nType :\n#wiki WORD - For Wikipedia Search\n#Pokemon POKEMON NAME - For Pokemon Search\n#movie MOVIE NAME - For Movie details,rating etc..\n#youtube TITLE - Youtube Search"
+	output_text="Hi there! I'm a ChatBot\nType :\n#wiki WORD - Wikipedia Search\n#Pokemon POKEMON NAME - Pokemon Search\n#movie MOVIE NAME - Movie details,rating etc..\n#youtube TITLE - Youtube Search"
 	response_msg = json.dumps({"recipient":{"id":fbid}, "message":{"text": output_text}})
 	status = requests.post(post_message_url, headers={"Content-Type": "application/json"},data=response_msg)
 	print status.json()
