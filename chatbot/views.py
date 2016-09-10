@@ -17,7 +17,7 @@ VERIFY_TOKEN='7thseptember2016'
 PAGE_ACCESS_TOKEN='EAAJmjf94eZB8BAEJHwLBtA5RxiIR6WUhra7TiXXIZBHrFtV7ZCyUFGuPOpG2O9vWMa2Lc8w5IFQZA1aZCHPqP4eZCrZCAcGQgYrcubYnVcD2jGF8ems2ZAUfQARhR6ivnofruOF2cSLKVVGEW8lOcYYh2FZBZCioJFDeHnZAy5PKcu1oQZDZD'
 
 def movies(fbid,title):
-	url='http://www.omdbapi.com/?t=%s&y=&plot=short&r=json'%(title)
+	url='http://www.omdbapi.com/?t=%s'%(title)
 	resp = requests.get(url=url).text
 	data = json.loads(resp)
 	t=data['Title']
@@ -112,7 +112,7 @@ class MyChatBotView(generic.View):
 						wikisearch(sender_id,message_text[1].replace(' ',''))
 					elif '#movie' in message_text.lower():
 						message_text = message_text.split(" ",1)
-						movies(sender_id,message_text[1].replace(' ','+'))
+						movies(sender_id,message_text[1])
 				except Exception as e:
 					print e
 					pass
