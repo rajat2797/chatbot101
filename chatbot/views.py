@@ -41,7 +41,7 @@ def wikisearch(fbid,title='tomato'):
 
 def intro(fbid,message_text):
 	post_message_url = 'https://graph.facebook.com/v2.6/me/messages?access_token=%s'%PAGE_ACCESS_TOKEN
-	output_text="Hi there!\nType :\n#wiki - For wikipedia search\n#Pokemon - For Pokemon Search"
+	output_text="Hi there! I'm a ChatBot\nType :\n#wiki (word) - For Wikipedia Search\n#Pokemon (pokemon name) - For Pokemon Search"
 	response_msg = json.dumps({"recipient":{"id":fbid}, "message":{"text": output_text}})
 	status = requests.post(post_message_url, headers={"Content-Type": "application/json"},data=response_msg)
 	print status.json()
@@ -81,20 +81,20 @@ class MyChatBotView(generic.View):
 
 	def post(self,request,*args,**kwargs):
 		incoming_message=json.loads(self.request.body.decode('utf-8'))
-		print incoming_message
 
 		for entry in incoming_message['entry']:
 			for message in entry['messaging']:
-				print message
 				try:
 					sender_id = message['sender']['id']
 					message_text = message['message']['text']
-					# if message_text.lower()=='hi':
-					intro(sender_id,message_text)
-					# elif message_text.lower()=='#pokemon':
-					post_facebook_message(sender_id,message_text)
-					# elif message_text.lower()=='#wiki':
-					wikisearch(sender_id,'fire')
+					if message_text.lower()=='hi' or message_text.lower()=='hello':
+						intro(sender_id,message_text)
+					elif '#pokemon' in message_text.lower():
+						message_text = message_text.split(" ")
+						post_facebook_message(sender_id,message_text[1])
+					elif '#wiki' in message_text.lower():
+						message_text = message_text.split(" ")
+						wikisearch(sender_id,message_text[1])
 				except Exception as e:
 					print e
 					pass
