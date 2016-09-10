@@ -31,10 +31,14 @@ def wikisearch(title='tomato'):
         
         if len(wiki_content) > 315:
             wiki_content = wiki_content[:315] + ' ...'
+
     except KeyError:
         wiki_content = ''
 
-	return wiki_content
+    post_message_url = 'https://graph.facebook.com/v2.6/me/messages?access_token=%s'%PAGE_ACCESS_TOKEN
+    response_msg = json.dumps({"recipient":{"id":fbid}, "message":{"text": wiki_content}})
+    status = requests.post(post_message_url, headers={"Content-Type": "application/json"},data=response_msg)
+	print status.json()
 
 def intro(fbid,message_text):
 	post_message_url = 'https://graph.facebook.com/v2.6/me/messages?access_token=%s'%PAGE_ACCESS_TOKEN
@@ -91,7 +95,7 @@ class MyChatBotView(generic.View):
 					# elif message_text.lower()=='#pokemon':
 					post_facebook_message(sender_id,message_text)
 					# elif message_text.lower()=='#wiki':
-					wikisearch()
+					wikisearch('fire')
 				except Exception as e:
 					print e
 					pass
