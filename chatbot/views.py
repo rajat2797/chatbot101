@@ -58,7 +58,7 @@ def wikisearch(fbid,title='tomato'):
 
 def intro(fbid,message_text):
 	post_message_url = 'https://graph.facebook.com/v2.6/me/messages?access_token=%s'%PAGE_ACCESS_TOKEN
-	output_text="Hi there! I'm a ChatBot\nType :\n#wiki (word) - For Wikipedia Search\n#Pokemon (pokemon name) - For Pokemon Search\n#movie (Movie Name) - For Movie details,rating etc.."
+	output_text="Hi there! I'm a ChatBot\nType :\n#wiki WORD - For Wikipedia Search\n#Pokemon POKEMON NAME - For Pokemon Search\n#movie MOVIE NAME - For Movie details,rating etc.."
 	response_msg = json.dumps({"recipient":{"id":fbid}, "message":{"text": output_text}})
 	status = requests.post(post_message_url, headers={"Content-Type": "application/json"},data=response_msg)
 	print status.json()
