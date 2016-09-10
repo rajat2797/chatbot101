@@ -20,8 +20,7 @@ def movies(fbid,title):
 	url='http://www.omdbapi.com/?t=%s&y=&plot=short&r=json'%(title)
 	resp = requests.get(url=url).text
 	data = json.loads(resp)
-	# if data is None:
-	# 	output_text='Kindly type a correct Name'
+	output_text=''
 	t=data['Title']
 	y=data['Year']
 	r=data['imdbRating']
