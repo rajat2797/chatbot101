@@ -94,7 +94,7 @@ class MyChatBotView(generic.View):
 						post_facebook_message(sender_id,message_text[1])
 					elif '#wiki' in message_text.lower():
 						message_text = message_text.split(" ",1)
-						wikisearch(sender_id,message_text[1])
+						wikisearch(sender_id,message_text[1].replace(' ',''))
 				except Exception as e:
 					print e
 					pass
