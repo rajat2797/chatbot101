@@ -19,6 +19,7 @@ PAGE_ACCESS_TOKEN='EAAJmjf94eZB8BAEJHwLBtA5RxiIR6WUhra7TiXXIZBHrFtV7ZCyUFGuPOpG2
 def movies(fbid,title):
 	url='http://www.omdbapi.com/?t=%s'%(title)
 	resp = requests.get(url=url).text
+	print '--------------resp=%s'%(resp)
 	data = json.loads(resp)
 	t=data['Title']
 	y=data['Year']
