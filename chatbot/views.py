@@ -18,7 +18,7 @@ PAGE_ACCESS_TOKEN='EAAJmjf94eZB8BAEJHwLBtA5RxiIR6WUhra7TiXXIZBHrFtV7ZCyUFGuPOpG2
 
 def post_img(fbid, data):
     post_message_url = 'https://graph.facebook.com/v2.6/me/messages?access_token=%s'% access_token
-    response_msg = json.dumps({"recipient":{"id":fbid}, "message":{"attachment":{"type":"image","payload":{"url":data}}}})
+    response_msg = json.dumps({"recipient":{"id":fbid}, "message":{"attachment":{"type":"image","payload":{"url":'http://thecatapi.com/api/images/get?format=src&type=png'}}}})
     status = requests.post(post_message_url, headers={"Content-Type": "application/json"},data=response_msg)
 
 def movies(fbid,title):
