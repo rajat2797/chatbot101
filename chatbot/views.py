@@ -17,19 +17,18 @@ VERIFY_TOKEN='7thseptember2016'
 PAGE_ACCESS_TOKEN='EAAJmjf94eZB8BAEJHwLBtA5RxiIR6WUhra7TiXXIZBHrFtV7ZCyUFGuPOpG2O9vWMa2Lc8w5IFQZA1aZCHPqP4eZCrZCAcGQgYrcubYnVcD2jGF8ems2ZAUfQARhR6ivnofruOF2cSLKVVGEW8lOcYYh2FZBZCioJFDeHnZAy5PKcu1oQZDZD'
 
 def movies(fbid,title):
-	# url='http://www.omdbapi.com/?t=%s&y=&plot=short&r=json'%(title)
-	# resp = requests.get(url=url).text
-	# print '--------------resp=%s'%(resp)
-	# data = json.loads(resp)
-	# t=data['Title']
-	# y=data['Year']
-	# r=data['imdbRating']
-	# g=data['Genre']
-	# p=data['Plot']
-	# a=data['Actors']
-	# output_text='Title : %s\nYear : %s\nIMDB-Rating : %s\nGenre : %s\nActors : %s\nPlot : %s'%(t,y,r,g,a,p)
+	url='http://www.omdbapi.com/?t=%s&y=&plot=short&r=json'%(title)
+	resp = requests.get(url=url).text
+	data = json.loads(resp)
+	t=data['Title']
+	y=data['Year']
+	r=data['imdbRating']
+	g=data['Genre']
+	p=data['Plot']
+	a=data['Actors']
+	output_text='Title : %s\nYear : %s\nIMDB-Rating : %s\nGenre : %s\nActors : %s\nPlot : %s'%(t,y,r,g,a,p)
 	post_message_url = 'https://graph.facebook.com/v2.6/me/messages?access_token=%s'%PAGE_ACCESS_TOKEN
-	response_msg = json.dumps({"recipient":{"id":fbid}, "message":{"text": title}})
+	response_msg = json.dumps({"recipient":{"id":fbid}, "message":{"text": output_text}})
 	status = requests.post(post_message_url, headers={"Content-Type": "application/json"},data=response_msg)
 
 def wikisearch(fbid,title='tomato'):
