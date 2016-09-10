@@ -114,7 +114,7 @@ class MyChatBotView(generic.View):
 						wikisearch(sender_id,message_text[1].replace(' ',''))
 					elif '#movie' in message_text.lower():
 						message_text = message_text.split(" ",1)
-						movies(sender_id,message_text[1].replace(' ','+'))
+						movies(sender_id,message_text[1].replace(' ','+').lower())
 				except Exception as e:
 					print e
 					pass
