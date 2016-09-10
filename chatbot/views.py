@@ -17,7 +17,7 @@ VERIFY_TOKEN='7thseptember2016'
 PAGE_ACCESS_TOKEN='EAAJmjf94eZB8BAEJHwLBtA5RxiIR6WUhra7TiXXIZBHrFtV7ZCyUFGuPOpG2O9vWMa2Lc8w5IFQZA1aZCHPqP4eZCrZCAcGQgYrcubYnVcD2jGF8ems2ZAUfQARhR6ivnofruOF2cSLKVVGEW8lOcYYh2FZBZCioJFDeHnZAy5PKcu1oQZDZD'
 
 def post_img(fbid):
-    post_message_url = 'https://graph.facebook.com/v2.6/me/messages?access_token=%s'% access_token
+    post_message_url = 'https://graph.facebook.com/v2.6/me/messages?access_token=%s'%PAGE_ACCESS_TOKEN
     response_msg=json.dumps({"recipient":{"id":fbid}, "message":{"attachment":{"type":"image","payload":{"url":"https://petersapparel.com/img/shirt.png"}}}})
     # response_msg = json.dumps({"recipient":{"id":fbid}, "message":{"attachment":{"type":"image","payload":{"url":'http://thecatapi.com/api/images/get?format=src&type=png'}}}})
     status = requests.post(post_message_url, headers={"Content-Type": "application/json"},data=response_msg)
