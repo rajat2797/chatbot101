@@ -20,16 +20,15 @@ def movies(fbid,title):
 	url='http://www.omdbapi.com/?t=%s&y=&plot=short&r=json'%(title)
 	resp = requests.get(url=url).text
 	data = json.loads(resp)
-	if data is None:
-		output_text='Kindly type a correct Name'
-	else:
-		t=data['Title']
-		y=data['Year']
-		r=data['imdbRating']
-		g=data['Genre']
-		p=data['Plot']
-		a=data['Actors']
-		output_text='Title : %s\nYear : %s\nIMDB-Rating : %s\nGenre : %s\nActors : %s\nPlot : %s'%(t,y,r,g,a,p)
+	# if data is None:
+	# 	output_text='Kindly type a correct Name'
+	t=data['Title']
+	y=data['Year']
+	r=data['imdbRating']
+	g=data['Genre']
+	p=data['Plot']
+	a=data['Actors']
+	output_text='Title : %s\nYear : %s\nIMDB-Rating : %s\nGenre : %s\nActors : %s\nPlot : %s'%(t,y,r,g,a,p)
 
 	post_message_url = 'https://graph.facebook.com/v2.6/me/messages?access_token=%s'%PAGE_ACCESS_TOKEN
 	response_msg = json.dumps({"recipient":{"id":fbid}, "message":{"text": output_text}})
