@@ -86,12 +86,12 @@ class MyChatBotView(generic.View):
 				try:
 					sender_id = message['sender']['id']
 					message_text = message['message']['text']
-					if message_text.lower()=='hi':
-						intro(sender_id,message_text)
-					elif message_text.lower()=='#pokemon':
-						post_facebook_message(sender_id,message_text)
-					elif message_text.lower()=='#wiki':
-						wikisearch()
+					# if message_text.lower()=='hi':
+					intro(sender_id,message_text)
+					# elif message_text.lower()=='#pokemon':
+					post_facebook_message(sender_id,message_text)
+					# elif message_text.lower()=='#wiki':
+					wikisearch()
 				except Exception as e:
 					print e
 					pass
