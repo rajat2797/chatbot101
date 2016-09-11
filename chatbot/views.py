@@ -25,12 +25,15 @@ def default(fbid):
 	response_msg = json.dumps({"recipient":{"id":fbid}, "message":{"text": output_text}})
 	status = requests.post(post_message_url, headers={"Content-Type": "application/json"},data=response_msg)
 
-def blog(fbid,name):
+def blog(fbid,name,query):
 	post_message_url = 'https://graph.facebook.com/v2.6/me/messages?access_token=%s'%PAGE_ACCESS_TOKEN
 	p = Users.objects.get(user_name=name)
 	output_text = ''
-	output_text += 'TITLE :\n%s\n'%(p.title.encode('utf-8'))
-	output_text += 'CONTENT :\n%s\n'%(p.content.encode('utf-8'))
+	if query=='show':
+		output_text += 'TITLE :\n%s\n'%(p.title.encode('utf-8'))
+		output_text += 'CONTENT :\n%s\n'%(p.content.encode('utf-8'))
+	else:
+		output_text = 'Changes have made successfully'
 	response_msg = json.dumps({"recipient":{"id":fbid}, "message":{"text": output_text}})
 	status = requests.post(post_message_url, headers={"Content-Type": "application/json"},data=response_msg)
 
@@ -159,11 +162,12 @@ class MyChatBotView(generic.View):
 						message_text = message_text.split(' ')
 						if 'add' in message_text[2].lower():
 							u = Users.objects.get(user_name=message_text[1])
-							u.title = message_text[2]
-							u.content = message_text[3]
+							u.title = message_text[3]
+							u.content = message_text[4]
 							u.save()
+							blog(sender_id,message_text[1],message_text[2].lower())
 						else:
-							blog(sender_id,message_text[1])
+							blog(sender_id,message_text[1],message_text[2].lower())
 					else:
 						default(sender_id)
 				except Exception as e:
