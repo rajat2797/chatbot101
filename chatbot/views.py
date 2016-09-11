@@ -18,6 +18,15 @@ PAGE_ACCESS_TOKEN='EAAJmjf94eZB8BAEJHwLBtA5RxiIR6WUhra7TiXXIZBHrFtV7ZCyUFGuPOpG2
 
 weather_api='b82cf7a4b0f1881c7a0513246b4adb28'
 
+def default(fbid):
+	post_message_url = 'https://graph.facebook.com/v2.6/me/messages?access_token=%s'%PAGE_ACCESS_TOKEN
+	output_text = "Hi! I'm not yet programmed to talk to a person\nKindly chose an option from the following : \nType :\n#wiki WORD - Wikipedia Search\n#Pokemon POKEMON NAME - Pokemon Search\n#movie MOVIE NAME - Movie details,rating etc..\n#youtube TITLE - Youtube Search" 
+	response_msg = json.dumps({"recipient":{"id":fbid}, "message":{"text": output_text}})
+	status = requests.post(post_message_url, headers={"Content-Type": "application/json"},data=response_msg)
+
+def blog(fbid):
+	post_message_url = 'https://graph.facebook.com/v2.6/me/messages?access_token=%s'%PAGE_ACCESS_TOKEN
+
 def weather(fbid,city):
 	url='http://api.openweathermap.org/data/2.5/weather?q=%s&APPID=%s'%(city,weather_api)
 
@@ -139,6 +148,11 @@ class MyChatBotView(generic.View):
 					elif '#youtube' in message_text.lower():
 						message_text = message_text.split(" ",1)
 						youtube_search(sender_id,message_text[1].replace(' ','+').lower())
+					elif '#blog' in message_text.lower():
+						message_text = message_text.split(' ',1)
+						blog(sender_id,message_text[1])
+					else:
+						default(sender_id)
 				except Exception as e:
 					print e
 					pass
