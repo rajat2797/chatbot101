@@ -1,5 +1,5 @@
 from django.contrib import admin
-from chatbot.models import users
+from chatbot.models import Users
 # Register your models here.
 
-admin.site.register(users)
+admin.site.register(Users)
