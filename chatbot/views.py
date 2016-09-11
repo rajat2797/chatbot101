@@ -160,12 +160,11 @@ class MyChatBotView(generic.View):
 						youtube_search(sender_id,message_text[1].replace(' ','+').lower())
 					elif '#blog' in message_text.lower():
 						message_text = message_text.split(' ',3)
-						initial = message_text[0].split(' ')
-						name= initial[1]
-						query = initial[2].lower()
+						name= message_text[1]
+						query = message_text[2].lower()
 						if 'add' in query:
-							u = Users.objects.get(user_name=message_text[1])
-							part=message_text[1].split('&')
+							u = Users.objects.get_or_create(user_name=name)
+							part=message_text[3].split('&')
 							u.title = part[0]
 							u.content = part[1]
 							u.save()
