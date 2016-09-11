@@ -165,8 +165,8 @@ class MyChatBotView(generic.View):
 						if 'add' in query:
 							u = Users.objects.get(user_name=name)
 							part=message_text[3].split('&')
-							u.title = part[0]
-							u.content = part[1]
+							u.title = part[0].rstrip()
+							u.content = part[1].lstrip()
 							u.save()
 							blog(sender_id,name,query)
 						else:
