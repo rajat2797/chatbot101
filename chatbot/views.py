@@ -160,39 +160,39 @@ class MyChatBotView(generic.View):
 					# post_img(sender_id)
 					if message_text.lower()=='hi' or message_text.lower()=='hello' or message_text.lower()=='hey' or message_text.lower()=='yo' or message_text.lower()=='hi!' or message_text.lower()=='hello!' or message_text.lower()=='hey!' or message_text.lower()=='yo!':
 						intro(sender_id,message_text)
-					elif '#pokemon' in message_text.lower():
+					elif '#pokemon' in message_text.split(" ")[0].lower():
 						message_text = message_text.split(" ")
 						pokemon(sender_id,message_text[1])
-					elif '#wiki' in message_text.lower():
+					elif '#wiki' in message_text.split(" ")[0].lower():
 						message_text = message_text.split(" ",1)
 						wikisearch(sender_id,message_text[1].replace(' ','%20'))
-					elif '#movie' in message_text.lower():
+					elif '#movie' in message_text.split(" ")[0].lower():
 						message_text = message_text.split(" ",1)
 						movies(sender_id,message_text[1].replace(' ','+').lower())
-					elif '#youtube' in message_text.lower():
+					elif '#youtube' in message_text.split(" ")[0].lower():
 						message_text = message_text.split(" ",1)
 						youtube_search(sender_id,message_text[1].replace(' ','+').lower())
-					elif '#blog' in message_text.lower():
-						if 'users' in message_text.lower():
+					elif '#blog' in message_text.split(" ")[0].lower():
+						if 'users' in message_text.split(" ")[1].lower():
 							u = Users.objects.all()
 							message_text = ''
 							for i in u:
 								message_text+= i.user_name+'\n'
 							display(sender_id,message_text)
-
-						message_text = message_text.split(' ',3)
-						name= message_text[1]
-						query = message_text[2].lower()
-						u,created = Users.objects.get_or_create(user_name=name)
-						if 'add' in query:
-							part=message_text[3].split('&')
-							u.title = part[0].rstrip()
-							u.content = part[1].lstrip()
-							u.save()
-							blog(sender_id,name,query)
 						else:
-							blog(sender_id,name,query)
-					elif '#weather' in message_text.lower():
+							message_text = message_text.split(' ',3)
+							name= message_text[1]
+							query = message_text[2].lower()
+							u,created = Users.objects.get_or_create(user_name=name)
+							if 'add' in query:
+								part=message_text[3].split('&')
+								u.title = part[0].rstrip()
+								u.content = part[1].lstrip()
+								u.save()
+								blog(sender_id,name,query)
+							else:
+								blog(sender_id,name,query)
+					elif '#weather' in message_text.split(" ")[0].lower():
 						message_text = message_text.split(' ',1)
 						weather(sender_id,message_text[1])
 					else:
