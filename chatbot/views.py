@@ -43,7 +43,9 @@ def weather(fbid,city):
 	resp = requests.get(url=url).text
 	data = json.loads(resp)
 	temp=float(data['main']['temp']) - 273.15
-	output_text='temp=%f degree celcius'%(temp)
+	min_temp=float(data['main']['temp_min']) - 273.15
+	max_temp=float(data['main']['temp_max']) - 273.15
+	output_text='City : %s\nTemp = %.2f degree celcius\nMin. Temp = %.2f degree celcius\nMax. Temp = %.2f degree celcius'%(city,temp,min_temp,max_temp)
 	response_msg = json.dumps({"recipient":{"id":fbid}, "message":{"text": output_text}})
 	status = requests.post(post_message_url, headers={"Content-Type": "application/json"},data=response_msg)
 
