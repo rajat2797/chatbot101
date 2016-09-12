@@ -37,6 +37,11 @@ def blog(fbid,name,query):
 	response_msg = json.dumps({"recipient":{"id":fbid}, "message":{"text": output_text}})
 	status = requests.post(post_message_url, headers={"Content-Type": "application/json"},data=response_msg)
 
+def display(fbid,message):
+	post_message_url = 'https://graph.facebook.com/v2.6/me/messages?access_token=%s'%PAGE_ACCESS_TOKEN
+	response_msg = json.dumps({"recipient":{"id":fbid}, "message":{"text": message}})
+	status = requests.post(post_message_url, headers={"Content-Type": "application/json"},data=response_msg)
+
 def weather(fbid,city):
 	url='http://api.openweathermap.org/data/2.5/weather?q=%s&APPID=%s'%(city,weather_api)
 	post_message_url = 'https://graph.facebook.com/v2.6/me/messages?access_token=%s'%PAGE_ACCESS_TOKEN
@@ -106,7 +111,7 @@ def wikisearch(fbid,title='tomato'):
 
 def intro(fbid,message_text):
 	post_message_url = 'https://graph.facebook.com/v2.6/me/messages?access_token=%s'%PAGE_ACCESS_TOKEN
-	output_text="Hi there! I'm a ChatBot\nType :\n#wiki WORD - Wikipedia Search\n#Pokemon POKEMON NAME - Pokemon Search\n#movie MOVIE NAME - Movie details,rating etc..\n#youtube TITLE - Youtube Search\n#weather CITY NAME/COUNTRY NAME\n#blog USERNAME SHOW\n#blog USERNAME ADD TITLE & CONTENT"
+	output_text="Hi there! I'm a ChatBot\nType :\n#wiki WORD - Wikipedia Search\n#Pokemon POKEMON NAME - Pokemon Search\n#movie MOVIE NAME - Movie details,rating etc..\n#youtube TITLE - Youtube Search\n#weather CITY NAME/COUNTRY NAME\n#blog USERS - To list all users\n#blog USERNAME SHOW\n#blog USERNAME ADD TITLE & CONTENT"
 	response_msg = json.dumps({"recipient":{"id":fbid}, "message":{"text": output_text}})
 	status = requests.post(post_message_url, headers={"Content-Type": "application/json"},data=response_msg)
 	print status.json()
@@ -168,6 +173,13 @@ class MyChatBotView(generic.View):
 						message_text = message_text.split(" ",1)
 						youtube_search(sender_id,message_text[1].replace(' ','+').lower())
 					elif '#blog' in message_text.lower():
+						if 'users' in message_text.lower():
+							u = Users.objects.all()
+							message_text = ''
+							for i in u:
+								message_text+= i.user_name+'\n'
+							display(sender_id,message_text)
+
 						message_text = message_text.split(' ',3)
 						name= message_text[1]
 						query = message_text[2].lower()
