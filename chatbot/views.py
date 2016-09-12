@@ -39,6 +39,13 @@ def blog(fbid,name,query):
 
 def weather(fbid,city):
 	url='http://api.openweathermap.org/data/2.5/weather?q=%s&APPID=%s'%(city,weather_api)
+	post_message_url = 'https://graph.facebook.com/v2.6/me/messages?access_token=%s'%PAGE_ACCESS_TOKEN
+	resp = requests.get(url=url).text
+	data = json.loads(resp)
+	temp=float(data['main']['temp']) - 273.15
+	output_text='temp=%f degree celcius'%(temp)
+	response_msg = json.dumps({"recipient":{"id":fbid}, "message":{"text": output_text}})
+	status = requests.post(post_message_url, headers={"Content-Type": "application/json"},data=response_msg)
 
 def youtube_search(fbid,message_text):
 	post_message_url = 'https://graph.facebook.com/v2.6/me/messages?access_token=%s'%PAGE_ACCESS_TOKEN
