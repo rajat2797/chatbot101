@@ -172,7 +172,7 @@ class MyChatBotView(generic.View):
 						name= message_text[1]
 						query = message_text[2].lower()
 						if 'add' in query:
-							u = Users.objects.get_or_create(user_name=name)
+							u,created = Users.objects.get_or_creat(user_name=name)
 							part=message_text[3].split('&')
 							u.title = part[0].rstrip()
 							u.content = part[1].lstrip()
