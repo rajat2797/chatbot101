@@ -178,6 +178,9 @@ class MyChatBotView(generic.View):
 							blog(sender_id,name,query)
 						else:
 							blog(sender_id,name,query)
+					elif '#weather' in message_text.lower():
+						message_text = message_text.split(' ',1)
+						weather(sender_id,message_text[1])
 					else:
 						default(sender_id)
 				except Exception as e:
