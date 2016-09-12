@@ -21,7 +21,7 @@ weather_api='b82cf7a4b0f1881c7a0513246b4adb28'
 
 def default(fbid):
 	post_message_url = 'https://graph.facebook.com/v2.6/me/messages?access_token=%s'%PAGE_ACCESS_TOKEN
-	output_text = "Hi! Kindly chose an option from the following : \nType :\n#wiki WORD - Wikipedia Search\n#Pokemon POKEMON NAME - Pokemon Search\n#movie MOVIE NAME - Movie details,rating etc..\n#youtube TITLE - Youtube Search\n#weather CITY NAME/COUNTRY NAME\n#blog USERS - To list all users\n#blog USERNAME SHOW\n#blog USERNAME ADD TITLE & CONTENT" 
+	output_text = "Hi! I'm not yet programmed to be talking to a person. Type 'hi' to know the format of the operations" 
 	response_msg = json.dumps({"recipient":{"id":fbid}, "message":{"text": output_text}})
 	status = requests.post(post_message_url, headers={"Content-Type": "application/json"},data=response_msg)
 
