@@ -21,7 +21,7 @@ weather_api='b82cf7a4b0f1881c7a0513246b4adb28'
 
 def default(fbid):
 	post_message_url = 'https://graph.facebook.com/v2.6/me/messages?access_token=%s'%PAGE_ACCESS_TOKEN
-	output_text = "Hi! I'm not yet programmed to be talking to a person\nKindly chose an option from the following : \nType :\n#wiki WORD - Wikipedia Search\n#Pokemon POKEMON NAME - Pokemon Search\n#movie MOVIE NAME - Movie details,rating etc..\n#youtube TITLE - Youtube Search\n#blog USERNAME SHOW\n#blog USERNAME ADD TITLE & CONTENT" 
+	output_text = "Hi! I'm not yet programmed to be talking to a person\nKindly chose an option from the following : \nType :\n#wiki WORD - Wikipedia Search\n#Pokemon POKEMON NAME - Pokemon Search\n#movie MOVIE NAME - Movie details,rating etc..\n#youtube TITLE - Youtube Search\n#weather CITY NAME/COUNTRY NAME\n#blog USERNAME SHOW\n#blog USERNAME ADD TITLE & CONTENT" 
 	response_msg = json.dumps({"recipient":{"id":fbid}, "message":{"text": output_text}})
 	status = requests.post(post_message_url, headers={"Content-Type": "application/json"},data=response_msg)
 
@@ -106,7 +106,7 @@ def wikisearch(fbid,title='tomato'):
 
 def intro(fbid,message_text):
 	post_message_url = 'https://graph.facebook.com/v2.6/me/messages?access_token=%s'%PAGE_ACCESS_TOKEN
-	output_text="Hi there! I'm a ChatBot\nType :\n#wiki WORD - Wikipedia Search\n#Pokemon POKEMON NAME - Pokemon Search\n#movie MOVIE NAME - Movie details,rating etc..\n#youtube TITLE - Youtube Search\n#blog USERNAME SHOW\n#blog USERNAME ADD TITLE & CONTENT"
+	output_text="Hi there! I'm a ChatBot\nType :\n#wiki WORD - Wikipedia Search\n#Pokemon POKEMON NAME - Pokemon Search\n#movie MOVIE NAME - Movie details,rating etc..\n#youtube TITLE - Youtube Search\n#weather CITY NAME/COUNTRY NAME\n#blog USERNAME SHOW\n#blog USERNAME ADD TITLE & CONTENT"
 	response_msg = json.dumps({"recipient":{"id":fbid}, "message":{"text": output_text}})
 	status = requests.post(post_message_url, headers={"Content-Type": "application/json"},data=response_msg)
 	print status.json()
@@ -172,7 +172,7 @@ class MyChatBotView(generic.View):
 						name= message_text[1]
 						query = message_text[2].lower()
 						if 'add' in query:
-							u = Users.objects.get(user_name=name)
+							u = Users.objects.get_or_create(user_name=name)
 							part=message_text[3].split('&')
 							u.title = part[0].rstrip()
 							u.content = part[1].lstrip()
