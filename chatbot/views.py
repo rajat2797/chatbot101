@@ -151,7 +151,7 @@ class MyChatBotView(generic.View):
 						pokemon(sender_id,message_text[1])
 					elif '#wiki' in message_text.lower():
 						message_text = message_text.split(" ",1)
-						wikisearch(sender_id,message_text[1].replace(' ',''))
+						wikisearch(sender_id,message_text[1].replace(' ','%20'))
 					elif '#movie' in message_text.lower():
 						message_text = message_text.split(" ",1)
 						movies(sender_id,message_text[1].replace(' ','+').lower())
