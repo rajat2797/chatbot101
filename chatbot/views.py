@@ -19,9 +19,9 @@ PAGE_ACCESS_TOKEN='EAAJmjf94eZB8BAEJHwLBtA5RxiIR6WUhra7TiXXIZBHrFtV7ZCyUFGuPOpG2
 
 weather_api='b82cf7a4b0f1881c7a0513246b4adb28'
 
-def post_img(fbid,output_text,image_url):
+def post_img(fbid,image_url):
     post_message_url = 'https://graph.facebook.com/v2.6/me/messages?access_token=%s'%PAGE_ACCESS_TOKEN
-    response_msg=json.dumps({"recipient":{"id":fbid}, "message":{"attachment":{"type":"image","payload":{"text": output_text,"url":image_url}}}})
+    response_msg=json.dumps({"recipient":{"id":fbid}, "message":{"attachment":{"type":"image","payload":{"url":image_url}}}})
     status = requests.post(post_message_url, headers={"Content-Type": "application/json"},data=response_msg)
 
 def default(fbid):
@@ -135,7 +135,7 @@ def pokemon(fbid,message_text):
 		output_text+='\n'
 		output_text+=i[1]
 		output_text+='\n'
-		post_img(fbid,i[0],i[1])
+		post_img(fbid,i[1])
 
 	if output_text=='':
 		output_text='Kindly type a pokemon name'
