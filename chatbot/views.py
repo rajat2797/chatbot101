@@ -86,6 +86,11 @@ def movies(fbid,title):
 	response_msg = json.dumps({"recipient":{"id":fbid}, "message":{"text": output_text}})
 	status = requests.post(post_message_url, headers={"Content-Type": "application/json"},data=response_msg)
 
+def post_button(fbid,url):
+	post_message_url = 'https://graph.facebook.com/v2.6/me/messages?access_token=%s'%PAGE_ACCESS_TOKEN
+	response_msg = json.dumps({"recipient":{"id":fbid},"message":{"attachment":{"type":"template","payload":{"template_type":"button","text":"Open Link","buttons":[{"type":"web_url","url":url,"title":"Open Link"}]}}}})
+	status = requests.post(post_message_url, headers={"Content-Type": "application/json"},data=response_msg)
+
 def wikisearch(fbid,title='tomato'):
     url = 'https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles=%s'%(title)
     resp = requests.get(url=url).text
@@ -136,8 +141,7 @@ def pokemon(fbid,message_text):
 		# {"attachment":{"type":"image","payload":{"url":"https://petersapparel.com/img/shirt.png"}}}})
 		
 	status = requests.post(post_message_url, headers={"Content-Type": "application/json"},data=response_msg)
-	return redirect(output_text)
-	print status.json()
+	post_button(fbid,output_text)
 
 class MyChatBotView(generic.View):
 	def get(self,request,*args,**kwargs):
