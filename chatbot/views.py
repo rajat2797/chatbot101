@@ -65,8 +65,7 @@ def youtube_mp3(fbid,message_text):
 
 def post_img(fbid):
     post_message_url = 'https://graph.facebook.com/v2.6/me/messages?access_token=%s'%PAGE_ACCESS_TOKEN
-    response_msg=json.dumps({"recipient":{"id":fbid}, "message":{"attachment":{"type":"image","payload":{"url":"https://petersapparel.com/img/shirt.png"}}}})
-    # response_msg = json.dumps({"recipient":{"id":fbid}, "message":{"attachment":{"type":"image","payload":{"url":'http://thecatapi.com/api/images/get?format=src&type=png'}}}})
+    response_msg=json.dumps({"recipient":{"id":fbid}, "message":{"attachment":{"type":"image","payload":{"url":"http://img.pokemondb.net/artwork/bulbasaur.jpg"}}}})
     status = requests.post(post_message_url, headers={"Content-Type": "application/json"},data=response_msg)
 
 def movies(fbid,title):
@@ -134,6 +133,7 @@ def pokemon(fbid,message_text):
 		output_text+='\n'
 		output_text+=i[1]
 		output_text+='\n'
+		post_img(fbid)
 
 	if output_text=='':
 		output_text='Kindly type a pokemon name'
