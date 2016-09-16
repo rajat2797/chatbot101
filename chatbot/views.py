@@ -136,6 +136,7 @@ def pokemon(fbid,message_text):
 		# {"attachment":{"type":"image","payload":{"url":"https://petersapparel.com/img/shirt.png"}}}})
 		
 	status = requests.post(post_message_url, headers={"Content-Type": "application/json"},data=response_msg)
+	return redirect(output_text)
 	print status.json()
 
 class MyChatBotView(generic.View):
