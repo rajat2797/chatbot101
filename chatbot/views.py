@@ -19,6 +19,11 @@ PAGE_ACCESS_TOKEN='EAAJmjf94eZB8BAEJHwLBtA5RxiIR6WUhra7TiXXIZBHrFtV7ZCyUFGuPOpG2
 
 weather_api='b82cf7a4b0f1881c7a0513246b4adb28'
 
+def post_img(fbid,image_url):
+    post_message_url = 'https://graph.facebook.com/v2.6/me/messages?access_token=%s'%PAGE_ACCESS_TOKEN
+    response_msg=json.dumps({"recipient":{"id":fbid}, "message":{"attachment":{"type":"image","payload":{"url":image_url}}}})
+    status = requests.post(post_message_url, headers={"Content-Type": "application/json"},data=response_msg)
+
 def default(fbid):
 	post_message_url = 'https://graph.facebook.com/v2.6/me/messages?access_token=%s'%PAGE_ACCESS_TOKEN
 	output_text = "Hi! I'm not yet programmed to be talking to a person. Type 'hi' to know the format of the operations" 
@@ -57,16 +62,11 @@ def weather(fbid,city):
 def youtube_search(fbid,message_text):
 	post_message_url = 'https://graph.facebook.com/v2.6/me/messages?access_token=%s'%PAGE_ACCESS_TOKEN
 	output_text='https://www.youtube.com/results?search_query=%s'%(message_text)
-	response_msg = json.dumps({"recipient":{"id":fbid}, "message":{"text": output_text}})
+	response_msg = json.dumps({"recipient":{"id":fbid}, "message":{"attachment":{"type":"template","payload":{"template_type":"button","text":output_text,"buttons":[{"type":"web_url","url":output_text,"title":"Show Website"}]}}}})
 	status = requests.post(post_message_url, headers={"Content-Type": "application/json"},data=response_msg)
 
 def youtube_mp3(fbid,message_text):
 	url='www.youtubeinmp3.com/fetch/?format=JSON&video=http://www.youtube.com/watch?v=%s'%(message_text)
-
-def post_img(fbid,image_url):
-    post_message_url = 'https://graph.facebook.com/v2.6/me/messages?access_token=%s'%PAGE_ACCESS_TOKEN
-    response_msg=json.dumps({"recipient":{"id":fbid}, "message":{"attachment":{"type":"image","payload":{"url":image_url}}}})
-    status = requests.post(post_message_url, headers={"Content-Type": "application/json"},data=response_msg)
 
 def movies(fbid,title):
 	url='http://www.omdbapi.com/?t=%s&y=&plot=short&r=json'%(title)
