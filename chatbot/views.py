@@ -79,6 +79,8 @@ def movies(fbid,title):
 	g=data['Genre']
 	p=data['Plot']
 	a=data['Actors']
+	img=data['Poster']
+	post_img(fbid,img)
 	output_text='Title : %s\nYear : %s\nIMDB-Rating : %s\nGenre : %s\nActors : %s\nPlot : %s'%(t,y,r,g,a,p)
 
 	post_message_url = 'https://graph.facebook.com/v2.6/me/messages?access_token=%s'%PAGE_ACCESS_TOKEN
