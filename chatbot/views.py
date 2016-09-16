@@ -62,7 +62,7 @@ def weather(fbid,city):
 def youtube_search(fbid,message_text):
 	post_message_url = 'https://graph.facebook.com/v2.6/me/messages?access_token=%s'%PAGE_ACCESS_TOKEN
 	output_text='https://www.youtube.com/results?search_query=%s'%(message_text)
-	response_msg = json.dumps({"recipient":{"id":fbid}, "message":{"attachment":{"type":"template","payload":{"template_type":"button","text":message_text.capitalize().replace('+',' '),"buttons":[{"type":"web_url","url":output_text,"title":"OPEN"}]}}}})
+	response_msg = json.dumps({"recipient":{"id":fbid}, "message":{"attachment":{"type":"template","payload":{"template_type":"button","text":message_text.capitalize().replace('+',' '),"buttons":[{"type":"web_url","url":output_text,"title":"OPEN","webview_height_ratio": "compact"}]}}}})
 	status = requests.post(post_message_url, headers={"Content-Type": "application/json"},data=response_msg)
 
 def youtube_mp3(fbid,message_text):
