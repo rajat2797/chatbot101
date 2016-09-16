@@ -62,7 +62,7 @@ def weather(fbid,city):
 def youtube_search(fbid,message_text):
 	post_message_url = 'https://graph.facebook.com/v2.6/me/messages?access_token=%s'%PAGE_ACCESS_TOKEN
 	output_text='https://www.youtube.com/results?search_query=%s'%(message_text)
-	response_msg = json.dumps({"recipient":{"id":fbid}, "message":{"attachment":{"type":"template","payload":{"template_type":"button","text":message_text.capitalize().replace('+',' '),"buttons":[{"type":"web_url","url":output_text,"title":"OPEN","webview_height_ratio": "compact"}]}}}})
+	response_msg = json.dumps({"recipient":{"id":fbid}, "message":{"attachment":{"type":"template","payload":{"template_type":"button","text":message_text.capitalize().replace('+',' '),"buttons":[{"type":"web_url","url":output_text,"title":"OPEN"}]}}}})
 	status = requests.post(post_message_url, headers={"Content-Type": "application/json"},data=response_msg)
 
 def youtube_mp3(fbid,message_text):
@@ -140,8 +140,6 @@ def pokemon(fbid,message_text):
 	if output_text=='':
 		output_text='Kindly type a pokemon name'
 	response_msg = json.dumps({"recipient":{"id":fbid}, "message":{"text": output_text}})
-		# {"attachment":{"type":"image","payload":{"url":"https://petersapparel.com/img/shirt.png"}}}})
-		
 	status = requests.post(post_message_url, headers={"Content-Type": "application/json"},data=response_msg)
 	post_button(fbid,output_text)
 
