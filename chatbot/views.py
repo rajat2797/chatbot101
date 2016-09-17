@@ -156,7 +156,7 @@ class MyChatBotView(generic.View):
 
 	def post(self,request,*args,**kwargs):
 		incoming_message=json.loads(self.request.body.decode('utf-8'))
-
+		print "------------------------%s"%(incoming_message)
 		for entry in incoming_message['entry']:
 			for message in entry['messaging']:
 				try:
