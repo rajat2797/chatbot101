@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from django.views import generic
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
-from details.py import developer_key,verify_token,page_access_token,weather_api
+# from details.py import developer_key,verify_token,page_access_token,weather_api
 import json
 import requests
 import re
