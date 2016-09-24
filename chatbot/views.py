@@ -5,7 +5,6 @@ from django.http import HttpResponse
 from django.views import generic
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
-# from details.py import developer_key,verify_token,page_access_token,weather_api
 import json
 import requests
 import re
@@ -165,6 +164,9 @@ def pokemon(fbid,message_text):
 	status = requests.post(post_message_url, headers={"Content-Type": "application/json"},data=response_msg)
 	post_button(fbid,output_text)
 
+def logg(message,symbol='-'):
+	print '%s\n %s\n %s\n'%(symbol*10,message,symbol*10)
+
 class MyChatBotView(generic.View):
 	def get(self,request,*args,**kwargs):
 		if self.request.GET['hub.verify_token']==VERIFY_TOKEN:
@@ -178,7 +180,7 @@ class MyChatBotView(generic.View):
 
 	def post(self,request,*args,**kwargs):
 		incoming_message=json.loads(self.request.body.decode('utf-8'))
-		
+		logg(incoming_message)
 		for entry in incoming_message['entry']:
 			for message in entry['messaging']:
 				try:
