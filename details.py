@@ -1,0 +1,7 @@
+developer_key = 'AIzaSyAfkPZzhdm2e3c1V8F4t_3RkwvCVQghz8k'
+
+verify_token='7thseptember2016'
+
+page_access_token='EAAJmjf94eZB8BAEJHwLBtA5RxiIR6WUhra7TiXXIZBHrFtV7ZCyUFGuPOpG2O9vWMa2Lc8w5IFQZA1aZCHPqP4eZCrZCAcGQgYrcubYnVcD2jGF8ems2ZAUfQARhR6ivnofruOF2cSLKVVGEW8lOcYYh2FZBZCioJFDeHnZAy5PKcu1oQZDZD'
+
+weather_api='b82cf7a4b0f1881c7a0513246b4adb28'
