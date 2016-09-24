@@ -57,16 +57,16 @@ def display(fbid,message):
 	response_msg = json.dumps({"recipient":{"id":fbid}, "message":{"text": message}})
 	status = requests.post(post_message_url, headers={"Content-Type": "application/json"},data=response_msg)
 
-def youtube_search2(options):
-   	youtube = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION,developerKey=DEVELOPER_KEY)
-  	search_response = youtube.search().list(
-	    q=options.q,
-	    type="video",
-	    location=options.location,
-	    locationRadius=options.location_radius,
-		part="id,snippet",
-		maxResults=options.max_results
-		).execute()
+# def youtube_search2(options):
+#    	youtube = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION,developerKey=DEVELOPER_KEY)
+#   	search_response = youtube.search().list(
+# 	    q=options.q,
+# 	    type="video",
+# 	    location=options.location,
+# 	    locationRadius=options.location_radius,
+# 		part="id,snippet",
+# 		maxResults=options.max_results
+# 		).execute()
 
 
 def weather(fbid,city):
