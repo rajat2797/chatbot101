@@ -9,14 +9,14 @@ import json
 import requests
 import re
 from chatbot.models import Users
-from apiclient.discovery import build
-from apiclient.errors import HttpError
-from oauth2client.tools import argparser
+# from apiclient.discovery import build
+# from apiclient.errors import HttpError
+# from oauth2client.tools import argparser
 # Create your views here.
 
-DEVELOPER_KEY = 'AIzaSyAfkPZzhdm2e3c1V8F4t_3RkwvCVQghz8k'
-YOUTUBE_API_SERVICE_NAME = "youtube"
-YOUTUBE_API_VERSION = "v3"
+# DEVELOPER_KEY = 'AIzaSyAfkPZzhdm2e3c1V8F4t_3RkwvCVQghz8k'
+# YOUTUBE_API_SERVICE_NAME = "youtube"
+# YOUTUBE_API_VERSION = "v3"
 
 url_google = 'https://www.googleapis.com/youtube/v3/search'
 
